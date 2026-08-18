@@ -1,0 +1,51 @@
+# ==========================================================
+# Zugangsdaten / Secrets – niemals versionieren
+# ==========================================================
+*.env
+.env.*
+secrets/
+*.pem
+*.key
+
+# ==========================================================
+# VS Code – nur unbedenkliche, geteilte Konfiguration tracken
+# (sftp.json enthält Host/Nutzername unseres Hostings -> ignoriert;
+#  sftp.json.example bleibt als Vorlage versioniert)
+# ==========================================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/sftp.json.example
+
+# ==========================================================
+# Windows (offizielles GitHub-Template: github/gitignore Global/Windows.gitignore)
+# ==========================================================
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# ==========================================================
+# macOS (falls auch von einem Mac aus gearbeitet wird)
+# ==========================================================
+.DS_Store
+
+# ==========================================================
+# Node / Build-Tools (noch ungenutzt, aber falls das Prototyp-Setup
+# später z. B. zu Astro/11ty wird)
+# ==========================================================
+node_modules/
+dist/
+.cache/
+npm-debug.log*
+
+# ==========================================================
+# Logs / temporäre Dateien
+# ==========================================================
+*.log
+*.tmp
+*.bak

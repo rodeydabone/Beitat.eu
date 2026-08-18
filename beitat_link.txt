@@ -1,0 +1,6 @@
+#Homepage
+https://beitat.eu/
+# adminPage
+https://beitat.eu/wp-admin/update-core.php
+
+

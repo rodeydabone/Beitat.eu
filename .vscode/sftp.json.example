@@ -1,0 +1,31 @@
+{
+  "name": "beitat.eu",
+  "remotePath": "/",
+  "uploadOnSave": false,
+  "useTempFile": false,
+  "openSsh": false,
+  "ignore": [
+    ".vscode",
+    ".git",
+    ".gitignore",
+    "docs",
+    "*.md",
+    "*.jpeg",
+    "*.png"
+  ],
+  "defaultProfile": "sftp",
+  "profiles": {
+    "sftp": {
+      "host": "<ftp-host>",
+      "protocol": "sftp",
+      "port": 22,
+      "username": "<ftp-username>"
+    },
+    "ftp": {
+      "host": "<ftp-host>",
+      "protocol": "ftp",
+      "port": 21,
+      "username": "<ftp-username>"
+    }
+  }
+}

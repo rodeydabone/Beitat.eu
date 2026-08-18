@@ -1,0 +1,511 @@
+/* ==========================================================
+   Naturheilpraxis Beitat – Design-System
+   Farben aus den Original-Dateien (Visitenkarte, Hintergrundvorlage)
+   per Pixel-Sampling ausgelesen, siehe docs/seitenstruktur-bauanleitung.md
+   ========================================================== */
+
+:root {
+  --gruen-dunkel: #0a5a16;      /* Headlines, Marke, Nav-Links */
+  --bordeaux: #7a2e29;          /* Fließtext-Akzent, Icons, Kontakt */
+  --gold: #f6c004;              /* Trennlinie, Akzent */
+  --lind-hell: #f3ffa0;         /* Band-Verlauf hell */
+  --lind-mittel: #d9eb87;       /* Band-Verlauf dunkler */
+  --creme: #fcfed7;             /* Seitenhintergrund */
+  --gruen-aquarell: #6db664;    /* Illustrations-Akzent */
+  --text-dunkel: #2b2b1f;
+
+  --font-headline: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --max-width: 1160px;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text-dunkel);
+  background: var(--creme);
+  line-height: 1.6;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Bänder (oben/unten), nachgebaut aus der Hintergrundvorlage ---------- */
+.band {
+  background: linear-gradient(120deg, var(--lind-mittel), var(--lind-hell) 60%, var(--lind-mittel));
+  position: relative;
+}
+.band::after {
+  content: "";
+  display: block;
+  height: 6px;
+  background: var(--gold);
+}
+.band-footer {
+  background: linear-gradient(120deg, var(--lind-mittel), var(--lind-hell) 60%, var(--lind-mittel));
+}
+.band-footer::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background: var(--gold);
+}
+
+/* ---------- Header ---------- */
+header.site-header {
+  padding: 18px 0;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand {
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  color: var(--gruen-dunkel);
+  text-decoration: none;
+  font-weight: 600;
+}
+nav.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+nav.main-nav a {
+  text-decoration: none;
+  color: var(--gruen-dunkel);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s ease;
+}
+nav.main-nav a:hover,
+nav.main-nav a[aria-current="page"] {
+  border-color: var(--gold);
+}
+nav.sub-nav {
+  margin-top: 8px;
+}
+nav.sub-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+nav.sub-nav a {
+  text-decoration: none;
+  color: var(--bordeaux);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 56px 0 64px;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero h1 {
+  font-family: var(--font-headline);
+  font-size: 3rem;
+  color: var(--gruen-dunkel);
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+.hero .claim {
+  font-size: 1.15rem;
+  color: var(--bordeaux);
+  margin: 0 0 28px;
+}
+.hero-photo img {
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
+}
+.btn {
+  display: inline-block;
+  background: var(--gruen-dunkel);
+  color: #fff;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(10, 90, 22, 0.25);
+}
+.btn.btn-gold {
+  background: var(--gold);
+  color: var(--text-dunkel);
+}
+
+/* ---------- Bedürfnis-Sektion ---------- */
+.needs {
+  padding: 56px 0 72px;
+}
+.needs h2 {
+  font-family: var(--font-headline);
+  font-size: 2.2rem;
+  color: var(--gruen-dunkel);
+  text-align: center;
+  margin: 0 0 8px;
+}
+.needs .lead {
+  text-align: center;
+  color: var(--bordeaux);
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+.needs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.need-card {
+  background: #fff;
+  border: 1px solid var(--lind-mittel);
+  border-radius: var(--radius);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.need-card .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--lind-hell);
+  color: var(--gruen-dunkel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.need-card h3 {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-size: 1.35rem;
+  color: var(--gruen-dunkel);
+}
+.need-card p {
+  margin: 0;
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: var(--text-dunkel);
+}
+.need-card .cta {
+  align-self: flex-start;
+  font-weight: 700;
+  color: var(--bordeaux);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.need-card .cta:hover { text-decoration: underline; }
+
+/* ---------- Generic content sections (für Unterseiten) ---------- */
+.page-hero {
+  padding: 48px 0 40px;
+}
+.page-hero h1 {
+  font-family: var(--font-headline);
+  font-size: 2.6rem;
+  color: var(--gruen-dunkel);
+  margin: 0 0 12px;
+}
+.content-section {
+  padding: 40px 0;
+}
+.content-section h2 {
+  font-family: var(--font-headline);
+  color: var(--gruen-dunkel);
+  font-size: 1.8rem;
+}
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.quote {
+  font-family: var(--font-headline);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--bordeaux);
+  border-left: 4px solid var(--gold);
+  padding-left: 20px;
+  margin: 32px 0;
+}
+.quote cite {
+  display: block;
+  font-style: normal;
+  font-size: 0.95rem;
+  margin-top: 8px;
+  color: var(--text-dunkel);
+}
+.placeholder-note {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.78rem;
+  background: var(--lind-hell);
+  color: var(--gruen-dunkel);
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+/* ---------- Footer ---------- */
+footer.site-footer {
+  padding: 48px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+.footer-grid h4 {
+  font-family: var(--font-headline);
+  color: var(--gruen-dunkel);
+  margin: 0 0 10px;
+}
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-grid a {
+  color: var(--bordeaux);
+  text-decoration: none;
+}
+.footer-grid a:hover { text-decoration: underline; }
+.footer-bottom {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(10, 90, 22, 0.2);
+  font-size: 0.82rem;
+  color: var(--text-dunkel);
+}
+
+/* ---------- Karten mit Bild (Schwerpunkte / Therapieangebot) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+}
+.img-card {
+  background: #fff;
+  border: 1px solid var(--lind-mittel);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.img-card .thumb {
+  height: 190px;
+  overflow: hidden;
+  background: var(--lind-hell);
+}
+.img-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.img-card .body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+.img-card h3 {
+  margin: 0;
+  font-family: var(--font-headline);
+  font-size: 1.4rem;
+  color: var(--gruen-dunkel);
+}
+.img-card p { margin: 0; flex-grow: 1; font-size: 0.95rem; }
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 0;
+}
+.tag {
+  font-size: 0.75rem;
+  background: var(--lind-hell);
+  color: var(--gruen-dunkel);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
+/* ---------- Filter-Layout (Therapieangebot) ---------- */
+.filter-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.filter-sidebar {
+  background: #fff;
+  border: 1px solid var(--lind-mittel);
+  border-radius: var(--radius);
+  padding: 22px;
+  position: sticky;
+  top: 20px;
+}
+.filter-sidebar h3 {
+  margin: 0 0 14px;
+  font-family: var(--font-headline);
+  color: var(--gruen-dunkel);
+  font-size: 1.15rem;
+}
+.filter-group { margin-bottom: 18px; }
+.filter-group legend {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--bordeaux);
+  margin-bottom: 6px;
+  padding: 0;
+}
+.filter-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+.filter-note {
+  font-size: 0.75rem;
+  color: var(--text-dunkel);
+  opacity: 0.75;
+}
+
+/* ---------- Events ---------- */
+.event-card {
+  background: #fff;
+  border: 1px solid var(--lind-mittel);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 22px;
+  align-items: center;
+}
+.event-card .date-badge {
+  background: var(--gruen-dunkel);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+  font-family: var(--font-headline);
+}
+.event-card .date-badge .day { font-size: 1.8rem; font-weight: 700; display: block; }
+.event-card .date-badge .month { font-size: 0.85rem; text-transform: uppercase; }
+.event-card h3 { margin: 0 0 6px; font-family: var(--font-headline); color: var(--gruen-dunkel); font-size: 1.3rem; }
+.event-card p { margin: 0; font-size: 0.9rem; }
+
+.event-hero-flyer img {
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
+}
+.exhibitor-list, .talk-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.exhibitor-list li, .talk-list li {
+  background: #fff;
+  border: 1px solid var(--lind-mittel);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.exhibitor-list a { color: var(--bordeaux); font-weight: 700; text-decoration: none; }
+.exhibitor-list a:hover { text-decoration: underline; }
+.talk-list .time { color: var(--gruen-dunkel); font-weight: 700; min-width: 70px; }
+.disclaimer-box {
+  background: var(--lind-hell);
+  border-left: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.85rem;
+  margin-top: 18px;
+}
+
+/* ---------- Kontaktformular ---------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 14px; }
+.contact-form label { font-weight: 700; font-size: 0.9rem; color: var(--gruen-dunkel); }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--lind-mittel);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+.contact-form textarea { min-height: 130px; resize: vertical; }
+.info-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.info-list li { display: flex; gap: 12px; align-items: flex-start; }
+.info-list .icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--lind-hell); color: var(--gruen-dunkel);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.map-placeholder {
+  margin-top: 20px;
+  height: 220px;
+  border-radius: var(--radius);
+  background: repeating-linear-gradient(45deg, var(--lind-hell), var(--lind-hell) 10px, var(--creme) 10px, var(--creme) 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gruen-dunkel);
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 760px) {
+  .hero-inner, .two-col, .filter-layout, .contact-grid { grid-template-columns: 1fr; }
+  .hero-photo { order: -1; }
+  nav.main-nav ul { gap: 16px; font-size: 0.92rem; }
+  .event-card { grid-template-columns: 1fr; text-align: center; }
+}
