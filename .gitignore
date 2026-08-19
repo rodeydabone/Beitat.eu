@@ -44,6 +44,14 @@ dist/
 npm-debug.log*
 
 # ==========================================================
+# Ad-hoc Screenshots im Root (z. B. per Chat/IDE-Paste, kein echtes Asset)
+# Echte Bilder gehören nach prototype/assets/img/ o.ä. und sind davon nicht betroffen.
+# ==========================================================
+/image.png
+/image (*).png
+/Screenshot*.png
+
+# ==========================================================
 # Logs / temporäre Dateien
 # ==========================================================
 *.log
