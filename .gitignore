@@ -52,6 +52,16 @@ npm-debug.log*
 /Screenshot*.png
 
 # ==========================================================
+# Interne Projekt-/Kontextdateien – bewusst nicht Teil des Repos, das
+# ggf. öffentlich für GitHub Pages genutzt wird. Bleiben lokal auf der
+# Maschine erhalten (Claude Code liest CLAUDE.md weiterhin lokal),
+# werden aber nicht mehr versioniert/gepusht. CHANGELOG.md bleibt bewusst
+# ausgenommen (Projektverlauf soll nachvollziehbar bleiben).
+# ==========================================================
+/CLAUDE.md
+/docs/
+
+# ==========================================================
 # Logs / temporäre Dateien
 # ==========================================================
 *.log

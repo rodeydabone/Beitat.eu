@@ -1,5 +1,42 @@
 # Changelog
 
+## 2026-08-19 (später, Teil 3) – Interne Kontextdateien aus der Versionierung genommen
+
+### Geändert
+- `CLAUDE.md` und der komplette `docs/`-Ordner (Planungsnotizen, Architektur-Analyse, Admin-Einführung, alte Bauanleitung) sind ab jetzt **nicht mehr Teil des Git-Repos** (`git rm --cached`, Regeln in `.gitignore`). Hintergrund: Das Repo ist für GitHub Pages vorgesehen und könnte öffentlich werden – interne Planungsdokumente sollen nicht zwangsläufig mit der Website mitveröffentlicht werden.
+- Die Dateien bleiben lokal auf der Maschine unverändert erhalten (Claude Code liest `CLAUDE.md` weiterhin normal), sie werden nur nicht mehr committet/gepusht.
+- `CHANGELOG.md` bleibt bewusst weiterhin versioniert – der Projektverlauf soll im Repo nachvollziehbar bleiben.
+
+## 2026-08-19 (später, Teil 2) – Responsive Überarbeitung (Mobile First)
+
+### Geändert
+- `assets/css/style.css` komplett auf **Mobile-First** umgestellt: Basis-Regeln gelten jetzt für schmale Bildschirme, `@media (min-width: 640px)` und `@media (min-width: 1000px)` schalten schrittweise auf mehrspaltige/Desktop-Layouts um (vorher: einzelne `max-width: 760px`-Regel als nachträglicher Fix).
+- **Fluide Typografie/Abstände** über `clamp()`-CSS-Variablen (`--fs-brand`, `--fs-hero-h1`, `--fs-page-h1`, `--fs-h2`, `--space-section`, `--space-container`) statt fixer `rem`-Werte, die an Breakpoints hart springen.
+- **Mobile Navigation**: Hamburger-Button (`.nav-toggle`) + aufklappbares Menü (`.nav-wrapper`) ab 6 Hauptpunkten + 2 Sekundärpunkten nötig, da inline-Nav auf schmalen Screens nicht mehr passt. Ab 1000px Breite permanent inline sichtbar, Button verschwindet. Neues `assets/js/nav.js` (reines Vanilla-JS, keine Abhängigkeiten) steuert das Auf-/Zuklappen und schließt das Menü nach Linkklick.
+- `.band`-Hintergrundbereich (Header/Hero) nutzt jetzt `min-height: clamp(...)` statt fixer Breakpoint-Werte für sanftes Skalieren.
+- Grids mit `repeat(auto-fit, minmax(...))` (Karten, Footer, Bedürfnis-Kacheln) blieben unverändert – waren bereits fluid.
+- Formular-Inputs auf `font-size: 1rem` gesetzt (verhindert Auto-Zoom beim Fokussieren auf iOS), Tapzonen bei Filter-Checkboxen und Kacheln vergrößert.
+- Hamburger-Button + `assets/js/nav.js`-Einbindung auf allen 10 Seiten ergänzt.
+
+### Hinweis
+- Konnte auf dieser Maschine nicht automatisiert bei mehreren Viewport-Breiten gegengeprüft werden (kein Headless-Browser verfügbar) – bitte im Browser per DevTools-Geräte-Toolbar (F12 → Toggle Device Toolbar) oder durch Fenster-Verkleinern selbst kurz gegenchecken, v. a. das Hamburger-Menü unter 1000px Breite.
+
+## 2026-08-19 (später) – Entscheidungen aus der Architektur-Analyse umgesetzt
+
+### Entschieden
+- Markenname bleibt **„Naturheilpraxis Beitat"** (ohne „& Kollegen").
+- CTA-Wortlaut einheitlich **„Termin anfragen"** (ersetzt „Erstgespräch buchen" auf Home und Therapieangebot, 13 Stellen).
+- **„Wissen & Blog"** wird jetzt schon als Hauptnav-Punkt geführt, aber ausdrücklich als Coming-Soon-Bereich.
+
+### Hinzugefügt
+- `prototype/wissen.html` – Übersichtsseite mit Coming-Soon-Banner und festem Karten-Layout (Bild-Platzhalter, Kategorie, Titel, Teaser, Datum) für zukünftige Beiträge; 3 Beispiel-Einträge zum Ausprobieren, kein echter Inhalt.
+- `prototype/wissen-beispiel-eintrag.html` – Artikel-Detail-Template (Titel, Meta, Bild-Platzhalter, Fließtext-Absätze, medizinischer Hinweis, CTA), als Muster für künftige echte Beiträge.
+- CSS: `.coming-soon-banner`, `.entry-meta`, `.thumb-placeholder`, `.article-body` in `assets/css/style.css`.
+- Nav-Eintrag „Wissen & Blog" auf allen 10 Seiten ergänzt (zwischen Therapieangebot und Über mich).
+- `docs/seitenbaum.md` aktualisiert (neue Seiten, bestätigter Markenname/CTA, aktualisierte offene Punkte).
+
+Basis: `docs/analyse-architektur-gestaltung.md` (Architektur-/Gestaltungsanalyse eines Kollegen-Durchlaufs), siehe deren Abschnitt 8 „Offene Entscheidungen".
+
 ## 2026-08-19 – Seitenbaum-Dokumentation
 
 ### Hinzugefügt

@@ -15,12 +15,17 @@
 <div class="band">
   <header class="site-header container header-inner">
     <a href="index.html" class="brand">Naturheilpraxis Beitat</a>
-    <div>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+      <span class="sr-only">Menü öffnen</span>
+    </button>
+    <div class="nav-wrapper" id="site-nav">
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="praxis-schwerpunkte.html">Praxis &amp; Schwerpunkte</a></li>
           <li><a href="therapieangebot.html">Therapieangebot</a></li>
+          <li><a href="wissen.html">Wissen &amp; Blog</a></li>
           <li><a href="ueber-mich.html">Über mich</a></li>
           <li><a href="kontakt.html">Kontakt aufnehmen</a></li>
         </ul>
@@ -119,5 +124,6 @@
   </footer>
 </div>
 
+<script src="assets/js/nav.js"></script>
 </body>
 </html>
