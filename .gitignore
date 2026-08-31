@@ -62,6 +62,13 @@ npm-debug.log*
 /docs/
 
 # ==========================================================
+# Roh-Zusendungen von Ellen (E-Mail-Anhänge etc.) – verarbeitete Ergebnisse
+# liegen jeweils in prototype/assets/img/, die Rohdateien bleiben nur lokal.
+# ==========================================================
+/Ellens Website - Event seite.zip
+/IMG-20260831-WA0068.jpg
+
+# ==========================================================
 # Logs / temporäre Dateien
 # ==========================================================
 *.log

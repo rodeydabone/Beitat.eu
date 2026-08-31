@@ -2,7 +2,7 @@ name: Deploy prototype to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, v0.2.0]
     paths:
       - "prototype/**"
       - ".github/workflows/deploy-pages.yml"
