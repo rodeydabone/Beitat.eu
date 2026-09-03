@@ -750,6 +750,45 @@ footer.site-footer {
 }
 .map-consent-loaded iframe { display: block; }
 
+/* ---------- Lightbox (Flyer-/Dokumentbilder vergrößert im selben Tab) ----------
+   Wird per assets/js/lightbox.js für alle a.lightbox-link erzeugt: ein Overlay
+   mit abgedunkeltem Hintergrund, Klick außerhalb des Bildes oder Escape schließt es. */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 15, 0.88);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 6vh 5vw;
+  cursor: zoom-out;
+}
+.lightbox-overlay.is-open { display: flex; }
+.lightbox-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
+body.lightbox-active { overflow: hidden; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

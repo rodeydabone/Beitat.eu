@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-09-03 (später, Teil 5) – Lightbox statt neuem Tab für Flyer-Bilder
+
+### Geändert
+- Neue `assets/js/lightbox.js` (Vanilla-JS, keine Abhängigkeiten): Klick auf ein Flyer-/Dokumentbild
+  öffnet es jetzt als vergrößertes Overlay im selben Tab (abgedunkelter Hintergrund) statt in einem
+  neuen Browser-Tab. Schließen per Klick außerhalb des Bildes, X-Button oder Escape-Taste.
+  CSS: `.lightbox-overlay`/`.lightbox-img`/`.lightbox-close` in `style.css`.
+- Alle bisherigen `target="_blank"`-Bild-Links (4× `praxis-schwerpunkte.html`, 4× `events-
+  naturheilkundetag.html`) auf `class="lightbox-link"` umgestellt, Skript in beiden Seiten eingebunden.
+
+## 2026-09-03 (später, Teil 4) – Leeren Rand an drei Event-Bildern entfernt
+
+### Behoben
+- `naturheilkundetag-flyer-s1.jpg`, `-s2.jpg` und `-vortragsprogramm-raum1.jpg` hatten unten einen
+  großen Leerbereich (bei S1/S2 reines Weiß, bestätigt per Pixelfarbe) statt direkt am Inhalt zu enden.
+  Per Zeilen-Varianz-Scan automatisch erkannt, wo der eigentliche Inhalt endet, und dort zugeschnitten
+  (S1: 1697→1500px, S2: 1697→1516px, Vortragsprogramm Raum 1: 1697→1498px Höhe).
+- Geprüft, aber unverändert gelassen: `flyer-darm.webp`/`flyer-frau.webp` haben nur einen schmalen
+  (~64px) einfarbigen Rand – das ist der Bilderrahmen aus der Originalvorlage, kein Leerraum.
+  `flyer-kreuz.webp`, `flyer-stress-vs.jpg`, `naturheilkundetag-ausstellerverzeichnis.jpg` waren bereits
+  eng zugeschnitten.
+
 ## 2026-09-03 (später, Teil 3) – Deploy-Fehler auf v0.2.0 behoben
 
 ### Behoben
