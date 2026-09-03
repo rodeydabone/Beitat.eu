@@ -62,6 +62,18 @@ npm-debug.log*
 /docs/
 
 # ==========================================================
+# Rohe Original-Bild-/Flyer-Ordner von Ellen – reines Quellmaterial
+# (Original-Fotos, Original-Flyer inkl. PDFs). Die für die Website
+# tatsächlich genutzten, bearbeiteten Versionen liegen als eigene
+# Kopien in prototype/assets/img/ und sind davon nicht betroffen.
+# Ordner-Regel gilt bewusst pauschal, damit auch künftig dort
+# abgelegte Originale/private Rohdateien automatisch draußen bleiben.
+# ==========================================================
+/Homepage Ellen - Farbdatei und Foto/
+/Homepage Ellen - Flyer dateien/
+/Instagram - Impressi - Konzept.docx
+
+# ==========================================================
 # Roh-Zusendungen von Ellen (E-Mail-Anhänge etc.) – verarbeitete Ergebnisse
 # liegen jeweils in prototype/assets/img/, die Rohdateien bleiben nur lokal.
 # ==========================================================

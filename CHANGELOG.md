@@ -1,5 +1,77 @@
 # Changelog
 
+## 2026-09-03 (später, Teil 2) – Impressum: drei eigene Seiten je Tätigkeitsbereich
+
+### Hinzugefügt
+- Quelle: `Instagram - Impressi - Konzept.docx` (Projektroot) enthielt vier fertige, nach § 5 DDG
+  formulierte Impressum-Texte für Ellens Instagram-Accounts. Text per PowerShell aus der
+  `word/document.xml` des Docx (ist ein ZIP) extrahiert, da kein Word/Docx-Reader verfügbar ist.
+- Drei neue Seiten, je Tätigkeitsbereich getrennt (wie von Ellen für Instagram vorgesehen, gleiches
+  Prinzip auf die Website übertragen):
+  - `impressum-praxis.html` – Naturheilpraxis Beitat (HP Ellen Beitat, Aufsichtsbehörde: Landratsamt
+    Aschaffenburg – Gesundheitsamt)
+  - `impressum-kraeuterwerkstatt.html` – Kräuterwerkstatt Alzenau (Seminarzentrum + Laden,
+    Aufsichtsbehörde: Stadt Alzenau; enthält als Hinweis den Handelsnamen „Vitaminerie" für den
+    Ladenbereich, da die Website keine eigene Vitaminerie-Seite hat – vierter Account aus dem Docx
+    wurde hier eingegliedert statt eigener Seite)
+  - `impressum-event.html` – Alzenauer Naturheilkundetag (Aufsichtsbehörde: Ordnungsamt Alzenau)
+- Footer-Link „Impressum" auf allen 10 bestehenden Seiten von `#`/TODO auf die jeweils passende
+  Impressum-Seite umgestellt (Praxis-Seiten → impressum-praxis, Seminarzentrum → impressum-
+  kraeuterwerkstatt, Events → impressum-event). „Haftungsausschluss" bleibt weiterhin TODO – dazu
+  lag keine vorbereitete Textquelle vor.
+
+## 2026-09-03 (später) – Flyer-/Dokument-Bilder: nicht mehr beschnitten, jetzt anklickbar
+
+### Behoben
+- Nutzer-Feedback: Flyer-Bilder in den Karten waren per `object-fit: cover` zugeschnitten (nur ein
+  Ausschnitt sichtbar) und nirgends klickbar – Inhalte der Flyer/Dokumente waren praktisch nicht lesbar.
+- `.img-card .thumb` (Praxis & Schwerpunkte): `object-fit: cover` → `contain`, zeigt das ganze Flyer-Bild
+  statt eines Ausschnitts. Zusätzlich ist die gesamte Vorschau jetzt ein Link, der das Originalbild in
+  voller Auflösung in einem neuen Tab öffnet, mit sichtbarem Hinweis „🔍 Zum Vergrößern anklicken".
+- Gleiches Muster auf `events-naturheilkundetag.html` ergänzt: Flyer S1 (Hero), Flyer S2,
+  Ausstellerverzeichnis und Vortragsprogramm Raum 1 sind jetzt alle anklickbar (öffnen Originalgröße),
+  nicht nur klein eingebettet – wichtig, da Ausstellerverzeichnis/Vortragsprogramm dichte Textinhalte sind.
+
+## 2026-09-03 – Repo-Bereinigung: rohe Original-Bilder raus, ungenutztes PDF eingebaut
+
+### Sicherheit/Datenschutz
+- Festgestellt: Das Repo ist aktuell **öffentlich** auf GitHub sichtbar. Die beiden Rohdaten-Ordner
+  `Homepage Ellen - Farbdatei und Foto/` und `Homepage Ellen - Flyer dateien/` (u. a. Ellens
+  unbearbeitetes Original-Porträt, alle Original-Flyer, ein ungenutztes 4,3-MB-PDF) waren dadurch
+  öffentlich einsehbar, obwohl sie nie Teil des deployten Prototyps sind (`deploy-pages.yml` deployt
+  ausschließlich `prototype/`). Aus der laufenden Versionierung genommen (`git rm --cached` + Ordner-
+  Regeln in `.gitignore`), bleiben lokal erhalten. Betrifft nur künftige Commits, nicht die bereits
+  gepushte Historie – dafür hat der Nutzer separat bereits eine Löschung sensibler Daten über den
+  GitHub-Support beauftragt und durchführen lassen.
+
+### Hinzugefügt
+- `Flyer - Stress  VS.pdf` (bisher komplett ungenutzt) per Windows-eigener `Windows.Data.Pdf`-API zu
+  `prototype/assets/img/flyer-stress-vs.jpg` gerendert und nachträglich sauber JPEG-komprimiert
+  (900px Breite, ~380 KB). Ersetzt in `praxis-schwerpunkte.html` die bisherige Rückseiten-Version
+  (`flyer-stress.jpg`, aus `Flyer-Stress - RS.jpg`) durch die deutlich aussagekräftigere Vorderseite
+  ("Lässig statt stressig – Ganzheitliche Stress-Medizin & Achtsamkeitstraining"). Alte, jetzt
+  ungenutzte `flyer-stress.jpg` gelöscht.
+
+## 2026-09-01 – Google Maps: Zwei-Klick-Lösung statt Direkt-Embed
+
+### Entschieden
+- Anlass: Ellen (per WhatsApp, weitergeleitet über David) hatte Bedenken bzgl. Abmahnrisiko bei
+  direkter Google-Maps-Einbindung und dazu bereits eine externe KI-Einschätzung eingeholt.
+  Einschätzung bestätigt: berechtigte Sorge, deckt sich mit dem bereits etablierten Vorsichtsprinzip
+  bei den Ausstellerlinks der Eventseite (siehe `docs/Kontext.md`). Kein API-Key nötig – die einfache
+  iframe-Einbettung ohne Google-Cloud-Account reicht für die Zwei-Klick-Lösung.
+
+### Geändert
+- `kontakt.html`: `.map-placeholder` (reiner Text-Platzhalter) ersetzt durch `.map-consent` –
+  Hinweistext + Button „Google Maps anzeigen". Die Karte lädt erst nach explizitem Klick, vorher
+  besteht keine Verbindung zu Google-Servern.
+- Neu: `assets/js/maps-consent.js` (Vanilla-JS, kein API-Key) baut das iframe erst nach Klick ein.
+- CSS: `.map-placeholder` durch `.map-consent`/`.map-consent-loaded` ersetzt.
+
+### Offen
+- Datenschutzerklärung (weiterhin TODO) muss bei Erstellung Google Maps explizit nennen (Dienst,
+  übertragene Daten, Rechtsgrundlage, Widerruf) – Platzhalter-Link ist schon im Hinweistext gesetzt.
+
 ## 2026-08-19 (später, Teil 3) – Interne Kontextdateien aus der Versionierung genommen
 
 ### Geändert

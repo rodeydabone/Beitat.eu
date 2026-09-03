@@ -517,16 +517,34 @@ footer.site-footer {
   flex-direction: column;
 }
 .img-card .thumb {
-  height: 190px;
+  height: 220px;
   overflow: hidden;
   background: var(--lind-hell);
+  display: flex;
+  flex-direction: column;
+  cursor: zoom-in;
+  text-decoration: none;
 }
 .img-card .thumb img {
+  flex: 1;
+  min-height: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  /* contain statt cover: Flyer sind textlastig - lieber komplett zeigen
+     (mit Luft links/rechts) als die Hälfte abzuschneiden. .thumb ist ein
+     Link auf die Originalgröße zum tatsächlichen Lesen, siehe .img-zoom-hint. */
+  object-fit: contain;
+  object-position: center;
 }
+.img-zoom-hint {
+  display: block;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--bordeaux);
+  padding: 5px 0;
+}
+.img-card .thumb:hover .img-zoom-hint { text-decoration: underline; }
 .img-card .body {
   padding: 20px;
   display: flex;
@@ -622,6 +640,14 @@ footer.site-footer {
   .event-card .date-badge { justify-self: start; width: auto; }
 }
 
+/* Anklickbare Flyer-/Dokument-Bilder: öffnen in Originalgröße im neuen Tab
+   (event-hero-flyer, das freistehende Flyer-S2-Bild, doc-page). */
+.event-hero-flyer a,
+.doc-image-block > a {
+  display: inline-block;
+  text-decoration: none;
+  cursor: zoom-in;
+}
 .event-hero-flyer img {
   border-radius: var(--radius);
   box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
@@ -633,6 +659,7 @@ footer.site-footer {
   align-items: flex-start;
   margin-bottom: 12px;
 }
+.doc-image-block > a { max-width: 480px; width: 100%; }
 .doc-image-block img.doc-page {
   width: 100%;
   max-width: 480px;
@@ -694,19 +721,34 @@ footer.site-footer {
   background: var(--lind-hell); color: var(--gruen-dunkel);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
-.map-placeholder {
+/* Google-Maps-Zwei-Klick-Lösung (Datenschutz, siehe docs/Kontext.md):
+   .map-consent zeigt zunächst nur Hinweistext + Button, erst nach Klick
+   ersetzt maps-consent.js den Inhalt durch das echte iframe. */
+.map-consent {
   margin-top: 20px;
-  height: 220px;
+  border: 1px dashed var(--bordeaux);
   border-radius: var(--radius);
-  background: repeating-linear-gradient(45deg, var(--lind-hell), var(--lind-hell) 10px, var(--creme) 10px, var(--creme) 20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gruen-dunkel);
-  font-weight: 700;
-  text-align: center;
   padding: 20px;
+  background: #fff;
 }
+.map-consent-text strong {
+  display: block;
+  font-family: var(--font-headline);
+  font-size: 1.1rem;
+  color: var(--gruen-dunkel);
+  margin-bottom: 8px;
+}
+.map-consent-text p {
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+}
+.map-consent-loaded {
+  padding: 0;
+  border-style: solid;
+  overflow: hidden;
+  line-height: 0; /* iframe-Whitespace am unteren Rand vermeiden */
+}
+.map-consent-loaded iframe { display: block; }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
