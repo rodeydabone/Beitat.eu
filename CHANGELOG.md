@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-09-03 (später, Teil 3) – Deploy-Fehler auf v0.2.0 behoben
+
+### Behoben
+- Pushes auf `v0.2.0` scheiterten am Pages-Deploy (0 von 0 Steps, 2 Sekunden) – über die GitHub-API
+  diagnostiziert: Das `github-pages`-Deployment-Environment erlaubt per Branch-Policy nur `main` als
+  Deploy-Quelle. `v0.2.0` nach `main` gemergt (inkl. Zusammenführen mit einem zwischenzeitlich über
+  GitHub erstellten PR-Merge-Commit) und gepusht – Deploy läuft jetzt wieder über `main`.
+- Für später festgehalten: entweder künftig konsequent nach `main` mergen, oder `v0.2.0` einmalig in
+  den Repo-Settings (Environments → github-pages → Deployment branches) freischalten.
+
 ## 2026-09-03 (später, Teil 2) – Impressum: drei eigene Seiten je Tätigkeitsbereich
 
 ### Hinzugefügt
