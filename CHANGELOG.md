@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-16 (zuletzt) – Eigenbluttherapie aus Therapieangebot entfernt
+
+### Entfernt
+- „Eigenbluttherapie" aus der Gruppe „Homöopathie & Ausleitungsverfahren" auf
+  `therapieangebot.html` gelöscht (auf Wunsch der Kundin, wird nicht angeboten).
+
 ## 2026-09-16 (noch später) – Echte Sprechzeiten auf Kontaktseite
 
 ### Geändert
