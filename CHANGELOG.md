@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-09-14 – Vollständige Impressum- & Datenschutzseiten für alle drei Marken
+
+### Geändert
+- `impressum-praxis.html`, `impressum-kraeuterwerkstatt.html` und `impressum-event.html` inhaltlich
+  komplett überarbeitet: statt der bisherigen schlanken Kurzversion jetzt vollständiges Impressum
+  (§ 5 DDG) **und** eine eigene Datenschutzerklärung (Art. 13/14 DSGVO) je Seite, inkl. Hosting-/
+  Logfile-Hinweis, Kontaktaufnahme, Instagram-/Meta-Verweis, Betroffenenrechten, Aufsichtsbehörde
+  (BayLDA) und SSL-Hinweis. Grundlage waren drei vom Nutzer bereitgestellte, eigenständige
+  HTML-Entwürfe (Anlass: die jeweiligen Instagram-Accounts sollen künftig direkt auf diese Seiten
+  verlinken, siehe unten). Inhalte ins bestehende Site-Design übernommen (Header/Footer/Nav
+  unverändert), damit ein einheitliches Erscheinungsbild bleibt statt separater Mini-Seiten.
+- `impressum-praxis.html` gilt für @Naturheilpraxis_Alzenau, `impressum-kraeuterwerkstatt.html` für
+  @Kräuterwerkstatt_Alzenau **und** @Vitaminerie (Vitaminerie ist Geschäftsbereich, kein eigenes
+  Unternehmen – ein gemeinsames Impressum deckt beide ab), `impressum-event.html` für
+  @AlzenauerNaturheilkundeTag.
+- CSS: neue `.article-body h3`- und `.legal-intro`-Regel in `style.css` für die zusätzliche
+  Überschriftenebene und die „Angaben gemäß …"-Unterzeile in den Rechtstexten.
+- Footer-Link „Impressum" auf allen drei betroffenen Seiten zu „Impressum & Datenschutz" umbenannt.
+- Offen (manueller Schritt, nicht über Code lösbar): In jedem der drei Instagram-Konten muss der
+  Link-in-Bio noch auf die jeweils passende, deployte URL gesetzt werden, z. B.
+  `https://rodeydabone.github.io/Beitat.eu/impressum-praxis.html`.
+
 ## 2026-09-13 – Seminarzentrum-Reiter aus Navigation entfernt
 
 ### Geändert

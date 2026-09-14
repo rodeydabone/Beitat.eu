@@ -243,7 +243,9 @@ nav.sub-nav a {
 }
 .hero-photo {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
   order: -1; /* Foto zuerst auf Mobile – Blickfang vor Text */
 }
 .hero-photo img {
@@ -256,8 +258,27 @@ nav.sub-nav a {
   max-width: 320px;
   transform: scaleX(-1);
 }
+.hero-photo-caption {
+  margin: 0;
+  max-width: 320px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.hero-photo-caption strong {
+  font-family: var(--font-headline);
+  color: var(--gruen-dunkel);
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.hero-photo-caption span {
+  font-size: 0.82rem;
+  color: var(--bordeaux);
+}
 @media (min-width: 640px) {
   .hero-photo img { max-width: 380px; }
+  .hero-photo-caption { max-width: 380px; }
 }
 @media (min-width: 1000px) {
   .hero-inner {
@@ -267,6 +288,7 @@ nav.sub-nav a {
   }
   .hero-photo { order: 0; }
   .hero-photo img { max-width: 440px; }
+  .hero-photo-caption { max-width: 440px; }
 }
 
 .btn {
@@ -470,6 +492,17 @@ nav.sub-nav a {
   font-size: 1.02rem;
 }
 .article-body p { margin: 0 0 18px; }
+.article-body h3 {
+  font-family: var(--font-headline);
+  color: var(--gruen-dunkel);
+  font-size: 1.1rem;
+  margin: 24px 0 6px;
+}
+.article-body .legal-intro {
+  color: var(--bordeaux);
+  font-size: 0.9rem;
+  margin: 0 0 24px;
+}
 
 /* ---------- Footer ---------- */
 footer.site-footer {
@@ -516,13 +549,19 @@ footer.site-footer {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.img-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(10, 90, 22, 0.16);
 }
 .img-card .thumb {
-  height: 220px;
+  position: relative;
+  height: 240px;
   overflow: hidden;
   background: var(--lind-hell);
   display: flex;
-  flex-direction: column;
+  padding: 20px;
   cursor: zoom-in;
   text-decoration: none;
 }
@@ -531,21 +570,45 @@ footer.site-footer {
   min-height: 0;
   width: 100%;
   /* contain statt cover: Flyer sind textlastig - lieber komplett zeigen
-     (mit Luft links/rechts) als die Hälfte abzuschneiden. .thumb ist ein
-     Link auf die Originalgröße zum tatsächlichen Lesen, siehe .img-zoom-hint. */
+     (mit Luft links/rechts) als die Hälfte abzuschneiden, dafür wie ein
+     aufgelegtes Blatt mit eigenem Schatten statt als rohes Scan-Rechteck. */
   object-fit: contain;
   object-position: center;
+  border-radius: 6px;
+  box-shadow: 0 10px 24px rgba(10, 90, 22, 0.2);
 }
 .img-zoom-hint {
-  display: block;
-  flex-shrink: 0;
-  text-align: center;
-  font-size: 0.72rem;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+  font-size: 0.95rem;
+}
+.img-card .thumb:hover .img-zoom-hint { background: #fff; }
+.flyer-other-side {
+  display: inline-flex;
+  align-self: center;
+  align-items: center;
+  gap: 6px;
+  margin: 12px auto 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--lind-hell);
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--bordeaux);
-  padding: 5px 0;
+  text-decoration: none;
+  cursor: zoom-in;
 }
-.img-card .thumb:hover .img-zoom-hint { text-decoration: underline; }
+.flyer-other-side:hover { background: var(--lind-mittel); }
+.flyer-other-side img { display: none; }
 .img-card .body {
   padding: 20px;
   display: flex;
@@ -560,6 +623,17 @@ footer.site-footer {
   color: var(--gruen-dunkel);
 }
 .img-card p { margin: 0; flex-grow: 1; font-size: 0.95rem; }
+.img-card > h3 {
+  text-align: center;
+  padding: 18px 16px 4px;
+  font-size: 1.25rem;
+}
+.img-card .card-actions {
+  display: flex;
+  justify-content: center;
+  padding: 16px 16px 20px;
+  margin-top: auto;
+}
 
 /* ---------- Filter-Layout (Therapieangebot) ---------- */
 .filter-layout {
@@ -788,6 +862,23 @@ footer.site-footer {
   cursor: pointer;
 }
 .lightbox-close:hover { background: rgba(255, 255, 255, 0.3); }
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox-nav:hover { background: rgba(255, 255, 255, 0.3); }
+.lightbox-prev { left: 12px; }
+.lightbox-next { right: 12px; }
 body.lightbox-active { overflow: hidden; }
 
 /* ---------- Reduced motion ---------- */
