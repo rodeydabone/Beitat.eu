@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-09-14 (noch später) – Echter Text auf „Über mich" eingepflegt
+
+### Geändert
+- `ueber-mich.html`: Platzhaltertexte durch den von Ellen bereitgestellten Text ersetzt
+  (Quelle: `NHP Beitat - Konzept texte - Seite über mich.docx`). Hero-Claim jetzt „Vom
+  Kläranlagenbau zur ganzheitlichen Naturheilkunde und Darmexpertin"; erster Abschnitt
+  (Foto + Zitat) erzählt den beruflichen Wechsel vom Kläranlagenbau zur Naturheilkunde,
+  zweiter Abschnitt „Mein Weg zur Darmexpertin" beschreibt die 20 Jahre Praxiserfahrung,
+  die eigene Autoimmunerkrankung und die ganzheitliche Haltung zur Therapie.
+- Den bisherigen Platzhalter-Abschnitt „Ganzheitliche Frauenheilkunde" entfernt (war nicht
+  Teil der neuen Textvorlage) – der Frauenheilkunde-Schwerpunkt bleibt über die eigene Karte
+  auf `praxis-schwerpunkte.html` abgedeckt.
+- Lange Fließtext-Absätze im zweiten Abschnitt in `.article-body` gewrappt (max-width 720px),
+  damit die Zeilenlänge über die volle Container-Breite hinweg lesbar bleibt.
+
+## 2026-09-14 (später) – Neue Seite „Beschwerdebilder" (bewusst ohne Cross-Link zu Therapieangebot)
+
+### Hinzugefügt
+- Neue Seite `beschwerdebilder.html`: 6 Themen-Kacheln zu häufigen Beschwerdebildern
+  (Kopfschmerzen & Migräne, Verdauungs- & Magen-Darm-Beschwerden, Rücken- & Gelenkschmerzen,
+  Erschöpfung & Schlafprobleme, Haut- & Schleimhautthemen, Hormonelle Beschwerden & Wechseljahre),
+  im selben `.need-card`-Muster wie die "Wozu benötigen Sie unsere Hilfe?"-Sektion der Startseite.
+  Reine Platzhaltertexte, jede Karte verlinkt ausschließlich auf Kontakt aufnehmen.
+- Neuer Hauptnav-Punkt „Beschwerdebilder" zwischen „Praxis & Schwerpunkte" und „Therapieangebot"
+  auf allen 14 Prototyp-Seiten ergänzt.
+- **Rechtlicher Hinweis (HWG/Heilpraktikergesetz):** Bewusst KEIN Link von dieser Seite zu
+  Therapieangebot oder einzelnen Anwendungsarten – folgt demselben Trennungsprinzip wie
+  Praxis & Schwerpunkte (siehe Eintrag vom 2026-08-31 und `docs/Kontext.md`). Seite enthält
+  zusätzlich einen expliziten Platzhalter-Hinweis für den späteren rechtlichen Disclaimer.
+- `docs/seitenbaum.md` aktualisiert (Baum, Diagramm, Status-Tabelle, Rechtlicher Hinweis);
+  dabei auch eine veraltete Diagramm-Kante `Praxis --> Therapie` korrigiert zu `Praxis --> Kontakt`,
+  die dem Text direkt darüber widersprach.
+
 ## 2026-09-14 – Vollständige Impressum- & Datenschutzseiten für alle drei Marken
 
 ### Geändert
