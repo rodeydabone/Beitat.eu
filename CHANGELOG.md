@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-15 (Korrektur) – 4 Schwerpunkte erneut umbenannt
+
+### Geändert
+- Erneute Umbenennung der 4 Schwerpunkte (index.html, praxis-schwerpunkte.html,
+  beschwerdebilder.html, inkl. Meta-Descriptions und Hero-Bildunterschrift):
+  - „Darmgesundheit, Immunsystem, Psyche & Haut" → **„Darm, Immunsystem, Haut"**
+  - „Stressbedingte Themen" → **„Stress, Psyche & Erschöpfung"** (Psyche von der
+    Darm-Kategorie hierher verschoben)
+  - „Ganzheitliche Frauen- & hormonelle Themen" → **„Hormone & Frauengesundheit"**
+  - „Ganzheitliche Schmerztherapie" unverändert
+
 ## 2026-09-15 (noch später) – Echter Haftungsausschluss je Marke + Content-Law-Check
 
 ### Hinzugefügt
