@@ -1,5 +1,34 @@
 # Changelog
 
+## 2026-09-14 (allerletzter Stand) – Zentraler Claim + konsequente Ich-Form
+
+### Geändert
+- Neuer zentraler Praxis-Claim auf der Startseite, prominent direkt unter der H1 platziert:
+  „Ihr Körper spricht mit Ihnen. Ich helfe Ihnen, ihn besser zu verstehen." (neue Klasse
+  `.hero .tagline` in `style.css`, kursiv/größer als der bisherige Erklärsatz, der jetzt als
+  unterstützender Zusatztext darunter steht). Meta-Description der Startseite entsprechend
+  angepasst.
+- Durchgängig auf Ich-Form umgestellt, da es sich um eine Einzelpraxis (Ellen Beitat) handelt,
+  kein Team: „Wozu benötigen Sie unsere Hilfe?" → „…meine Hilfe?", „wir begleiten Sie
+  individuell" → „ich begleite…" (`index.html`); „zu uns kommen" → „zu mir kommen", „klären
+  wir" → „kläre ich" (`beschwerdebilder.html`, Meta-Description + Hero-Claim + Hinweistext).
+  Bewusst unverändert gelassen: die zwei „uns"/„unser"-Stellen in Ellens Originaltext auf
+  `ueber-mich.html` – dort generisch gemeint (menschlicher Körper allgemein bzw. das
+  idiomatische „Lassen Sie uns…" zwischen ihr und der Patientin/dem Patienten).
+
+## 2026-09-14 (letzter Stand) – Startseite: Platzhalter-Kacheln durch echte Schwerpunkte ersetzt
+
+### Geändert
+- `index.html`, Sektion „Wozu benötigen Sie unsere Hilfe?": Die 6 Platzhalter-Kacheln (Akute
+  Themen, Homöopathie & Pflanzenheilkunde usw. mit Icon + Fließtext + eigenem CTA) sind raus.
+  Stattdessen stehen dort jetzt die 4 echten Praxis-Schwerpunkte nur als Überschrift, ohne
+  Icon/Bild/Text (Naturheilkunde & Schmerztherapie, Darmgesundheit, Stress-Medizin,
+  Ganzheitliche Frauenheilkunde) – identisch benannt wie auf `praxis-schwerpunkte.html`.
+- Statt einzelner "Termin anfragen"-Links je Kachel gibt es jetzt einen zentralen Button
+  „Zu Praxis & Schwerpunkte" unter der Kachel-Reihe, der auf die Übersichtsseite verlinkt.
+- CSS: neue Modifier-Klassen `.needs-grid--titles` / `.need-card--title-only` in `style.css`
+  für die schlanken, zentrierten Titel-Kacheln (kein Icon-Kreis, kein Fließtext-Slot).
+
 ## 2026-09-14 (noch später) – Echter Text auf „Über mich" eingepflegt
 
 ### Geändert
