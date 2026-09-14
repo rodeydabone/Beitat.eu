@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-16 (noch später) – Echte Sprechzeiten auf Kontaktseite
+
+### Geändert
+- `kontakt.html`: Platzhalter „[Platzhalter: Sprechzeiten / Termine nach Vereinbarung]"
+  durch echte Angabe ersetzt: „Termine nach Vereinbarung, Di, Mi, Do 08:00–13:00 &
+  15:00–20:00 Uhr".
+
 ## 2026-09-16 (später) – Therapieangebot: echte Filterfunktion + gruppierte Darstellung
 
 ### Geändert
