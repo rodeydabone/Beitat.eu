@@ -254,6 +254,7 @@ nav.sub-nav a {
   border-radius: var(--radius);
   width: 100%;
   max-width: 320px;
+  transform: scaleX(-1);
 }
 @media (min-width: 640px) {
   .hero-photo img { max-width: 380px; }

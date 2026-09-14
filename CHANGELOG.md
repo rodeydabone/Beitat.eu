@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-09-13 – Seminarzentrum-Reiter aus Navigation entfernt
+
+### Geändert
+- Der Link „Seminarzentrum" wurde aus der Sub-Nav (neben „Events") und aus dem Footer-Bereich
+  „Mehr" auf allen 13 Prototyp-Seiten entfernt. Grund: Naturheilpraxis Beitat und Kräuterwerkstatt/
+  Seminarzentrum sind zwei getrennte Firmen und dürfen steuerrechtlich nicht vermischt werden –
+  ein sichtbarer Reiter würde die beiden Unternehmen für Besucher als zusammengehörig darstellen.
+- `seminarzentrum.html` selbst bleibt unverändert bestehen und ist weiterhin per Direktlink
+  erreichbar (z. B. von der Kräuterwerkstatt selbst zu verteilen), taucht aber nicht mehr in der
+  Seiten-Navigation auf. „Events" ist von der Änderung nicht betroffen und bleibt sichtbar verlinkt.
+- `docs/seitenbaum.md` entsprechend aktualisiert (Baum, Diagramm, Status-Tabelle, neuer
+  Rechtlicher Hinweis).
+
 ## 2026-09-03 (später, Teil 5) – Lightbox statt neuem Tab für Flyer-Bilder
 
 ### Geändert
