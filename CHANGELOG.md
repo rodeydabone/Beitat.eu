@@ -1,5 +1,64 @@
 # Changelog
 
+## 2026-09-15 (noch später) – Echter Haftungsausschluss je Marke + Content-Law-Check
+
+### Hinzugefügt
+- Drei neue Haftungsausschluss-Seiten (`haftungsausschluss-praxis.html`,
+  `haftungsausschluss-kraeuterwerkstatt.html`, `haftungsausschluss-event.html`), je Marke
+  eigenständig wie beim Impressum. Inhalt: Haftung für Inhalte (§ 7 Abs. 1 DDG) und Links,
+  Urheberrecht – plus markenspezifische Ergänzungen:
+  - **Praxis:** kein Ersatz für ärztliche/heilkundliche Behandlung, kein Angebot zur
+    Fernbehandlung (§ 9 HWG), keine Heilversprechen/Erfolgsgarantie (§ 3 HWG), Hinweis zu
+    schweren Krankheiten nach Anlage § 12 HWG.
+  - **Kräuterwerkstatt:** Hinweise zu Nahrungsergänzung/Naturkosmetik (Health-Claims-VO
+    (EG) Nr. 1924/2006, kein Ersatz für ausgewogene Ernährung), Hinweis dass Seminare/
+    Workshops keine Heilkundeausübung darstellen.
+  - **Event:** Hinweis zu Ausstellern und Vortragsprogramm (Verantwortung liegt bei den
+    jeweiligen Ausstellern/Referenten, keine Heilversprechen), Haftung als Veranstalterin.
+- Footer-Link „Haftungsausschluss" auf allen 14 betroffenen Seiten von totem `#`/TODO auf
+  die jeweils passende neue Seite umgestellt (praxis-/kraeuterwerkstatt-/event-Gruppe wie
+  beim Impressum-Link).
+- Weiterer gefundener toter Link behoben: Der Datenschutz-Hinweis beim Google-Maps-Consent
+  auf `kontakt.html` verlinkte auf `#`/TODO – zeigt jetzt auf die bestehende
+  Datenschutzerklärung (`impressum-praxis.html#datenschutz`, dafür neue Anker-ID ergänzt).
+
+### Geprüft (Content-Law-Scan, keine weiteren Funde)
+- Gesamter Seiteninhalt auf Heilversprechen/Erfolgsgarantien durchsucht (Begriffe wie
+  „garantiert", „heilt", „schmerzfrei", „100 %", „nachgewiesen") – keine Treffer.
+  „Autoimmunerkrankung"-Erwähnungen auf `ueber-mich.html` sind Ellens persönliche
+  Erfahrungsberichte, keine Werbeaussage zur Behandlung – unkritisch.
+- `therapieangebot.html` filtert bereits bewusst nur nach Anwendungsart, nicht nach
+  Beschwerdebild (bestehender HWG-Hinweis dort bestätigt korrekt).
+
+## 2026-09-15 (später) – Beschwerdebilder: einladender Zusatzsatz nach Web-Recherche
+
+### Hinzugefügt
+- Nach Recherche zu üblichen "Beschwerdebilder"-Seiten bei Heilpraktiker-Websites (u. a.
+  heilpraktiker-schmidt.de/beschwerdebilder/): Solche Übersichten sind dort bewusst nicht
+  erschöpfend und laden explizit dazu ein, auch nicht gelistete Themen anzusprechen –
+  Diagnosesprache/lange Listen wirken sonst wie eine unvollständige Checkliste.
+  Entsprechend neuer Satz auf `beschwerdebilder.html` unterhalb der 4 Themen-Kacheln:
+  „Ihr Thema ist hier nicht aufgeführt? Diese Übersicht ist bewusst nicht abschließend –
+  sprechen Sie mich gerne trotzdem an."
+
+## 2026-09-15 – Offizielle Neubenennung der 4 Schwerpunkte
+
+### Geändert
+- Die 4 Praxis-Schwerpunkte gemäß der Vorgabe aus
+  `NHP Beitat - Konzept texte - die 4 Schwerpunkte - Startseite Schwerpunkte und
+  Beschwerdebilder.docx` umbenannt und überall konsistent durchgezogen:
+  - „Naturheilkunde & Schmerztherapie" → **„Ganzheitliche Schmerztherapie"**
+  - „Darmgesundheit" → **„Darmgesundheit, Immunsystem, Psyche & Haut"**
+  - „Stress-Medizin" → **„Stressbedingte Themen"**
+  - „Ganzheitliche Frauenheilkunde" → **„Ganzheitliche Frauen- & hormonelle Themen"**
+- Angepasst in: den 4 Kacheln auf der Startseite (`index.html`, inkl. Hero-Bildunterschrift
+  und Meta-Description), den 4 Flyer-Karten auf `praxis-schwerpunkte.html` (inkl.
+  Meta-Description; Flyer-Bilder selbst und deren Alt-Texte unverändert, da eigenes
+  Werbematerial) sowie den 6 Einträgen auf `beschwerdebilder.html` – dort auf Nutzerwunsch
+  von 6 granularen Symptomen (Kopfschmerzen, Verdauung, Rücken, Erschöpfung, Haut, Hormone)
+  auf dieselben 4 breiten Kategorien reduziert, inkl. neuer Icons für Schmerztherapie und
+  stressbedingte Themen.
+
 ## 2026-09-14 (Nachtrag) – Startseiten-Kacheln verlinkt
 
 ### Geändert
