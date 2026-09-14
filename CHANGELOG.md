@@ -1,5 +1,75 @@
 # Changelog
 
+## 2026-09-15 (ganz zum Schluss) – UDH-Hessen-Legitimitäts-Badge im Hero der Startseite
+
+### Geändert
+- Die Schwerpunkt-Aufzählung unter dem Hero-Foto ist nach oben in die Textspalte gewandert,
+  direkt unter den Tagline-Claim (neue Klasse `.hero-subline`). Die Namenszeile „Ellen
+  Beitat – Ihre Heilpraktikerin mit 20 Jahren Erfahrung" bleibt wie gewünscht unter dem
+  Foto stehen (neue Klasse `.hero-photo-name`), darunter folgt jetzt das Legitimitäts-Badge.
+- Unter dem Foto (unter der Namenszeile) steht jetzt zusätzlich ein Legitimitäts-Badge: das
+  offizielle runde Mitgliedssiegel „Mitglied – Union Deutscher Heilpraktiker" (von der Kundin
+  bereitgestellt, `assets/img/udh-hessen-mitglied-siegel.jpg`), verlinkt auf Ellen Beitats
+  Eintrag in der offiziellen Heilpraktikersuche der Union Deutscher Heilpraktiker,
+  Landesverband Hessen e.&nbsp;V. (udh-hessen.de) (neue Klasse `.hero-verify-badge`, öffnet
+  in neuem Tab, Siegel mit `border-radius:50%` rund freigestellt).
+- CSS-Fix dabei: `.hero-photo img` war zu breit gefasst und hätte auch das neue Badge-Logo
+  gespiegelt/mit Schatten versehen – auf `.hero-photo > img` (nur Direktkind, also das
+  Porträtfoto) präzisiert.
+
+## 2026-09-15 (spätestens) – Beschwerdebilder: Layout-Bugs behoben (Listenabstand, Überschriften)
+
+### Behoben
+- Riesige, ungleichmäßige Lücken zwischen Listenpunkten in den zweispaltigen Listen: Ursache
+  war CSS-Multi-Column-Layout (`columns: 2`) in Kombination mit `break-inside: avoid` – der
+  Browser balanciert dabei die Spaltenhöhe und reißt dabei große Lücken zwischen einzelne
+  Einträge. Umgestellt auf CSS-Grid (`display:grid; grid-template-columns: 1fr 1fr`), das
+  Einträge sauber zeilenweise nebeneinander setzt statt spaltenweise zu balancieren.
+- Zwischenüberschriften (h3, z. B. „Stresshormone & Nebennieren") waren optisch kaum von den
+  Listenpunkten zu unterscheiden. Jetzt in Bordeaux, größer, fett und mit Trennlinie
+  abgesetzt statt nur etwas Abstand nach oben.
+- Zeilenabstand innerhalb der Listen von zu großzügig auf kompakt reduziert.
+
+## 2026-09-15 (später) – Block „Ganzheitliche Schmerztherapie" ergänzt
+
+### Hinzugefügt
+- Weitere konkrete Beschwerdebilder im Block „Ganzheitliche Schmerztherapie" ergänzt:
+  Rückenschmerzen, Schulter-Arm-Syndrom, Spannungskopfschmerz und Migräne, Beckenschiefstand,
+  ISG-Blockade und Beinlängendifferenz, Tennisellenbogen, Karpaltunnelsyndrom, Knie- und
+  Fußprobleme, Kniearthrose, Tinnitus, Zähneknirschen, Allergiebehandlung ganzheitlich,
+  Reizdarmsyndrom, u.v.a.m. (Tippfehler aus der Vorgabe stillschweigend korrigiert, z. B.
+  Tennisellenbogen statt „Tennissellenbogen", Karpaltunnelsyndrom statt „Carpaltunnersyndrom").
+  Dabei „Rückenschmerzen" wieder entfernt, da inhaltlich bereits durch „Rücken-, Nacken- und
+  Gelenkbeschwerden" in der ersten Liste desselben Blocks abgedeckt (Dopplung vermieden).
+
+## 2026-09-15 (spät) – Beschwerdebilder: vollständige Inhalte statt Platzhalter, Layout auf Absatzform umgestellt
+
+### Geändert
+- `beschwerdebilder.html` von kompaktem Icon-Kachelraster (`.need-card`) auf gestapelte
+  Themenblöcke umgestellt (`.beschwerde-block`, je Block volle Containerbreite, durch
+  Trennlinie abgesetzt). Grund: Die reale Textvorlage (`NHP Beitat - Konzept texte -
+  Beschwerdebilder.docx`) enthält pro Thema lange, differenzierte Symptomlisten statt
+  kurzer 1–2-Satz-Teaser – dafür ist ein drittes Kachelraster (nach Startseite und Praxis
+  & Schwerpunkte) zu eng; Fließtext/Listen in voller Breite lesen sich deutlich ruhiger.
+  Lange Symptomlisten laufen ab 700px zweispaltig (`ul.two-col`, CSS-Columns) statt als
+  eine sehr lange einspaltige Liste.
+- Alle 4 Themenblöcke mit dem vollständigen, von der Kundin bereitgestellten Text befüllt:
+  Ganzheitliche Schmerztherapie; Darm, Immunsystem & Haut (mit Unterabschnitten
+  Darmgesundheit/Immunsystem/Haut); Hormone & Frauengesundheit (mit Unterabschnitten
+  Zyklus/Schilddrüse/Stresshormone/weitere Themen); Stress, Psyche & Erschöpfung.
+- Neue Quick-Nav-Pillenleiste oben auf der Seite mit Sprunglinks zu den 4 Blöcken (Anker),
+  da die Seite durch die vollständigen Inhalte deutlich länger geworden ist.
+- Die in der Textvorlage enthaltenen wichtigen medizinischen Sicherheitshinweise 1:1
+  übernommen und optisch hervorgehoben (neue Klasse `.disclaimer-box--critical`,
+  bordeauxfarbener Rand statt golden): u. a. „Eine Heilpraktikerbehandlung ersetzt keine
+  notwendige ärztliche Therapie" bei Autoimmun-/chronisch-entzündlichen Erkrankungen, und
+  der Hinweis zur zwingend erforderlichen ärztlichen/psychotherapeutischen Abklärung bei
+  Depression, schweren Angststörungen oder Suizidgedanken (Block „Stress, Psyche &
+  Erschöpfung").
+- Abschluss der Seite an den Text der Vorlage angepasst: „Sie finden Ihre Beschwerden
+  nicht in der Liste?" mit Einladung zum persönlichen Erstgespräch statt der bisherigen
+  kürzeren Platzhalter-Formulierung.
+
 ## 2026-09-15 (Korrektur) – 4 Schwerpunkte erneut umbenannt
 
 ### Geändert
