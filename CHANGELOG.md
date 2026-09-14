@@ -1,5 +1,45 @@
 # Changelog
 
+## 2026-09-16 (später) – Therapieangebot: echte Filterfunktion + gruppierte Darstellung
+
+### Geändert
+- Die 52 Therapieverfahren waren als eine lange, unstrukturierte zweispaltige Liste zu
+  „breit gefächert" – jetzt in 8 fachlich sinnvolle Gruppen sortiert, jede mit eigener
+  Bordeaux-Überschrift: Homöopathie & Ausleitungsverfahren; Pflanzenheilkunde, Naturmedizin
+  & Fasten; Körperarbeit & Massage; Injektionen & Infusionen; Diagnostik & Anamnese;
+  Energetische Verfahren & TCM; Psyche, Gespräch & Trauma; Frauengesundheit & Hormone.
+- Die Filter-Sidebar ist jetzt echt funktional (reines Vanilla-JS, `assets/js/
+  therapie-filter.js`, kein Zusatz-Tool nötig): Checkboxen entsprechen den 8 neuen Gruppen,
+  beim Anhaken werden nur die passenden Gruppen angezeigt (Mehrfachauswahl möglich), bei
+  keiner Auswahl wird alles gezeigt. Neuer „Alle anzeigen (Filter zurücksetzen)"-Button.
+  Der bisherige „Prototyp: noch nicht funktional"-Hinweis ist damit hinfällig und entfernt.
+- Der rechtliche Hinweis bleibt unverändert bestehen: gefiltert wird ausschließlich nach
+  Anwendungsart, nie nach Beschwerdebild (HWG-Trennung).
+- CSS: neue `.verfahren-group`/`h3`-Stile sowie ein gestylter Reset-Button
+  (`#verfahren-filter-reset`), da die bisherige `.cta`-Klasse nur für Links innerhalb von
+  `.need-card` definiert war und für einen eigenständigen Button nicht gepasst hätte.
+
+## 2026-09-16 – Therapieangebot: vollständige Verfahrensliste statt Platzhalter-Karten
+
+### Geändert
+- `therapieangebot.html`: Die 4 fiktiven Platzhalter-Karten (Homöopathie & Pflanzenheilkunde,
+  Massage, Injektionen & Infusionen, Mineral- & Vitalstoffe – je mit „[Platzhalter: neutrale
+  Beschreibung...]") sowie der abschließende Platzhalter-Hinweis sind raus. Stattdessen listet
+  die Seite jetzt die vollständigen, von der Kundin bereitgestellten 53 Therapieverfahren
+  (`NHP Beitat - Konzept texte - Therapieformen.docx`) alphabetisch in einer zweispaltigen
+  Liste unter „Alle angewandten Verfahren im Überblick". Filter-Sidebar (Anwendungsart,
+  Layout-Prototyp) bleibt unverändert bestehen.
+- Tippfehler aus der Vorlage stillschweigend korrigiert (u. a. „Rodgers" → „Rogers" bei
+  Gesprächstherapie, „Jamamoto" → „Yamamoto" bei der Schädelakupunktur, „Massage n" →
+  „Massage", „Labor Untersuchung" → „Laboruntersuchung", „P hytotherapie" → „Phytotherapie",
+  „Vitamin C HochdosisTherapie" → „Vitamin-C-Hochdosistherapie"); doppelten Eintrag
+  „Irisdiagnose" entfernt, da bereits durch „Augen-, Irisdiagnose" abgedeckt.
+- CSS-Refactoring: Die kompakten Zweispalten-Listenstile (`ul.two-col`, vorher an
+  `.beschwerde-block` gebunden) sind jetzt allgemein wiederverwendbar (`.detail-block`/
+  `.results ul`/`li`), damit sie auch außerhalb von Beschwerdebilder funktionieren. Klasse
+  `.beschwerde-block` in `.detail-block` umbenannt (generischer Name, da jetzt auf mehreren
+  Seiten im Einsatz). Beschwerdebilder-Seite optisch unverändert, gegengeprüft.
+
 ## 2026-09-15 (ganz zum Schluss) – UDH-Hessen-Legitimitäts-Badge im Hero der Startseite
 
 ### Geändert

@@ -733,6 +733,31 @@ footer.site-footer {
   color: var(--text-dunkel);
   opacity: 0.75;
 }
+#verfahren-filter-reset {
+  display: inline-block;
+  border: none;
+  background: var(--lind-hell);
+  color: var(--gruen-dunkel);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+#verfahren-filter-reset:hover { background: var(--lind-mittel); }
+.verfahren-group {
+  margin-bottom: 32px;
+}
+.verfahren-group h3 {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--bordeaux);
+  border-bottom: 2px solid var(--lind-mittel);
+  padding-bottom: 6px;
+  margin: 0 0 12px;
+}
 @media (min-width: 1000px) {
   .filter-layout { grid-template-columns: 250px 1fr; gap: 40px; }
   .filter-sidebar { position: sticky; top: 20px; }
@@ -851,22 +876,22 @@ footer.site-footer {
   text-decoration: none;
 }
 .beschwerde-quicknav a:hover { background: var(--lind-mittel); }
-.beschwerde-block {
+.detail-block {
   padding: 40px 0;
   border-bottom: 1px solid var(--lind-mittel);
 }
-.beschwerde-block h2 {
+.detail-block h2 {
   font-family: var(--font-headline);
   font-size: var(--fs-h2-sm);
   color: var(--gruen-dunkel);
   margin: 0 0 4px;
 }
-.beschwerde-block .beschwerde-lead {
+.detail-block .beschwerde-lead {
   color: var(--bordeaux);
   font-size: 1.05rem;
   margin: 0 0 16px;
 }
-.beschwerde-block h3 {
+.detail-block h3 {
   font-family: var(--font-headline);
   font-weight: 700;
   font-size: 1.3rem;
@@ -875,16 +900,22 @@ footer.site-footer {
   padding-bottom: 6px;
   margin: 36px 0 14px;
 }
-.beschwerde-block ul {
+/* Kompakte Listen für lange Aufzählungen (Beschwerdebilder, Therapieangebot) */
+.detail-block ul,
+.results ul {
   margin: 0 0 16px;
   padding-left: 20px;
 }
-.beschwerde-block li {
+.detail-block li,
+.results li {
   margin-bottom: 4px;
   line-height: 1.4;
 }
+/* ul.two-col: wiederverwendbares zweispaltiges Layout für lange Listen
+   (überall dort, wo viele kurze Einträge kompakter wirken sollen als
+   eine lange einspaltige Liste) */
 @media (min-width: 700px) {
-  .beschwerde-block ul.two-col {
+  ul.two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 32px;

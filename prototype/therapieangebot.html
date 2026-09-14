@@ -52,55 +52,128 @@
 
     <aside class="filter-sidebar">
       <h3>Filtern nach</h3>
-      <fieldset class="filter-group">
+      <fieldset class="filter-group" id="verfahren-filter">
         <legend>Anwendungsart</legend>
-        <label><input type="checkbox"> Homöopathie</label>
-        <label><input type="checkbox"> Pflanzenheilkunde</label>
-        <label><input type="checkbox"> Massage</label>
-        <label><input type="checkbox"> Injektionen &amp; Infusionen</label>
-        <label><input type="checkbox"> Mineral- &amp; Vitalstoffe</label>
+        <label><input type="checkbox" value="homoeopathie-ausleitung"> Homöopathie &amp; Ausleitungsverfahren</label>
+        <label><input type="checkbox" value="pflanzen-naturmedizin"> Pflanzenheilkunde, Naturmedizin &amp; Fasten</label>
+        <label><input type="checkbox" value="koerperarbeit-massage"> Körperarbeit &amp; Massage</label>
+        <label><input type="checkbox" value="injektionen-infusionen"> Injektionen &amp; Infusionen</label>
+        <label><input type="checkbox" value="diagnostik-anamnese"> Diagnostik &amp; Anamnese</label>
+        <label><input type="checkbox" value="energetik-tcm"> Energetische Verfahren &amp; TCM</label>
+        <label><input type="checkbox" value="psyche-gespraech"> Psyche, Gespräch &amp; Trauma</label>
+        <label><input type="checkbox" value="frauen-hormone"> Frauengesundheit &amp; Hormone</label>
       </fieldset>
-      <p class="filter-note">⚠ Prototyp: Die Filterung ist noch nicht funktional (statisches Layout). Eine echte Filterfunktion braucht später ein Zusatz-Tool.</p>
+      <p><button type="button" class="cta" id="verfahren-filter-reset">Alle anzeigen (Filter zurücksetzen)</button></p>
       <p class="placeholder-note" style="display:block; margin-top:10px;">Aus rechtlichen Gründen (Heilmittelwerbegesetz) wird hier ausschließlich nach Anwendungsart gefiltert – nicht nach Beschwerdebild. Methoden und Indikationen werden auf dieser Website bewusst nicht miteinander verknüpft.</p>
     </aside>
 
     <div class="results">
-      <div class="card-grid">
+      <h2 style="margin-top:0;">Alle angewandten Verfahren im Überblick</h2>
+      <p>Diese Übersicht listet die in der Praxis angewandten Therapieverfahren – neutral und unabhängig von einzelnen Beschwerdebildern. Welche Methode im Einzelfall sinnvoll ist, besprechen wir gemeinsam im persönlichen Gespräch.</p>
 
-        <div class="img-card">
-          <div class="body">
-            <h3>Homöopathie &amp; Pflanzenheilkunde</h3>
-            <p>[Platzhalter: neutrale Beschreibung der Methode – was sie ist, woher sie stammt, wie eine Anwendung abläuft]</p>
-            <a class="cta" href="kontakt.html">Termin anfragen →</a>
-          </div>
-        </div>
-
-        <div class="img-card">
-          <div class="body">
-            <h3>Massage</h3>
-            <p>[Platzhalter: neutrale Beschreibung der Methode – was sie ist, woher sie stammt, wie eine Anwendung abläuft]</p>
-            <a class="cta" href="kontakt.html">Termin anfragen →</a>
-          </div>
-        </div>
-
-        <div class="img-card">
-          <div class="body">
-            <h3>Injektionen &amp; Infusionen</h3>
-            <p>[Platzhalter: neutrale Beschreibung der Methode – was sie ist, woher sie stammt, wie eine Anwendung abläuft]</p>
-            <a class="cta" href="kontakt.html">Termin anfragen →</a>
-          </div>
-        </div>
-
-        <div class="img-card">
-          <div class="body">
-            <h3>Mineral- &amp; Vitalstoffe</h3>
-            <p>[Platzhalter: neutrale Beschreibung der Methode – was sie ist, woher sie stammt, wie eine Anwendung abläuft]</p>
-            <a class="cta" href="kontakt.html">Termin anfragen →</a>
-          </div>
-        </div>
-
+      <div class="verfahren-group" data-cat="homoeopathie-ausleitung">
+        <h3>Homöopathie &amp; Ausleitungsverfahren</h3>
+        <ul class="two-col">
+          <li>Homöopathie</li>
+          <li>Biochemie nach Dr. Schüßler</li>
+          <li>Ausleitende Verfahren</li>
+          <li>Ausleitungstherapie</li>
+          <li>Blutegeltherapie</li>
+          <li>Eigenbluttherapie</li>
+          <li>Schröpfen</li>
+          <li>Schröpfkopfmassage</li>
+          <li>Aderlass</li>
+        </ul>
       </div>
-      <p class="placeholder-note" style="display:block; margin-top:20px;">[Platzhalter: weitere Anwendungsarten der Praxis werden hier ergänzt, sobald final abgestimmt]</p>
+
+      <div class="verfahren-group" data-cat="pflanzen-naturmedizin">
+        <h3>Pflanzenheilkunde, Naturmedizin &amp; Fasten</h3>
+        <ul class="two-col">
+          <li>Phytotherapie</li>
+          <li>Aromatherapie</li>
+          <li>Naturmedizin nach Hildegard von Bingen</li>
+          <li>Orthomolekulare Medizin</li>
+          <li>Vitamin-C-Hochdosistherapie</li>
+          <li>Sanum-Therapie</li>
+          <li>Fastenführung</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="koerperarbeit-massage">
+        <h3>Körperarbeit &amp; Massage</h3>
+        <ul class="two-col">
+          <li>Massage</li>
+          <li>Bindegewebsmassage</li>
+          <li>Breuss-Massage</li>
+          <li>Chakra-Massage</li>
+          <li>Reflexzonentherapie</li>
+          <li>Fußreflexzonentherapie</li>
+          <li>Bowentherapie / Bowtech</li>
+          <li>Chiropraktik</li>
+          <li>Wirbelsäulentherapie nach Dorn</li>
+          <li>Schmerztherapie</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="injektionen-infusionen">
+        <h3>Injektionen &amp; Infusionen</h3>
+        <ul class="two-col">
+          <li>Injektionstherapie</li>
+          <li>Infusionstherapie</li>
+          <li>Neuraltherapie</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="diagnostik-anamnese">
+        <h3>Diagnostik &amp; Anamnese</h3>
+        <ul class="two-col">
+          <li>Antlitzdiagnostik</li>
+          <li>Augen-, Irisdiagnose</li>
+          <li>Chakra-Diagnostik</li>
+          <li>Fußreflexdiagnose</li>
+          <li>Gesprächsanamnese</li>
+          <li>Bioresonanztest</li>
+          <li>Medikamentenverträglichkeit-Testung</li>
+          <li>Laboruntersuchung</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="energetik-tcm">
+        <h3>Energetische Verfahren &amp; TCM</h3>
+        <ul class="two-col">
+          <li>Akupunktur</li>
+          <li>Akupressur</li>
+          <li>Ohrakupunktur</li>
+          <li>Schädelakupunktur nach Yamamoto</li>
+          <li>TCM (Traditionelle Chinesische Medizin)</li>
+          <li>Bioenergetische Arbeit</li>
+          <li>Farbtherapie</li>
+          <li>Farbpunktur nach Mandel</li>
+          <li>Lichttherapie</li>
+          <li>Symbioselenkung</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="psyche-gespraech">
+        <h3>Psyche, Gespräch &amp; Trauma</h3>
+        <ul class="two-col">
+          <li>Gesprächstherapie nach Rogers</li>
+          <li>Traumatherapie</li>
+          <li>Atemtherapie</li>
+        </ul>
+      </div>
+
+      <div class="verfahren-group" data-cat="frauen-hormone">
+        <h3>Frauengesundheit &amp; Hormone</h3>
+        <ul class="two-col">
+          <li>Ganzheitliche Frauenheilkunde</li>
+          <li>Biologische / homöopathische Hormontherapie</li>
+        </ul>
+      </div>
+
+      <p class="placeholder-note" id="verfahren-empty-note" hidden>Für diese Filterkombination sind aktuell keine Verfahren hinterlegt. Bitte sprechen Sie mich direkt an – vieles lässt sich individuell kombinieren.</p>
+
+      <a class="btn" href="kontakt.html">Kontakt aufnehmen</a>
     </div>
   </div>
 </section>
@@ -138,5 +211,6 @@
 </div>
 
 <script src="assets/js/nav.js"></script>
+<script src="assets/js/therapie-filter.js"></script>
 </body>
 </html>
