@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-09-14 (Nachtrag) – Startseiten-Kacheln verlinkt
+
+### Geändert
+- Die 4 Schwerpunkt-Kacheln unter „Wozu benötigen Sie meine Hilfe?" sind jetzt klickbar und
+  springen direkt zur passenden Flyer-Karte auf `praxis-schwerpunkte.html` (neue Anker-IDs
+  `#schwerpunkt-schmerz`/`-darm`/`-stress`/`-frau` an den jeweiligen `.img-card`-Elementen).
+  Dezenter Hover-Effekt (Anheben + Schatten) ergänzt.
+- Der Button unter den Kacheln führt jetzt zu „Beschwerdebilder" statt zu „Praxis &
+  Schwerpunkte" (Linktext entsprechend zu „Zu Beschwerdebildern" geändert) – die Kacheln selbst
+  decken den Link zu Praxis & Schwerpunkte bereits ab.
+
 ## 2026-09-14 (wirklich letzter Stand) – Erklärsatz im Hero entfernt
 
 ### Entfernt

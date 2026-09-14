@@ -399,6 +399,12 @@ nav.sub-nav a {
   justify-content: center;
   text-align: center;
   min-height: 90px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.need-card--title-only:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(10, 90, 22, 0.14);
 }
 .need-card--title-only h3 { font-size: 1.2rem; }
 
