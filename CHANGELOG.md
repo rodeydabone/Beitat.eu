@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-14 (wirklich letzter Stand) – Erklärsatz im Hero entfernt
+
+### Entfernt
+- Den erklärenden Zweitsatz „Mit 20 Jahren Erfahrung und einem ganzheitlichen Blick begleite
+  ich Sie zu den Zusammenhängen hinter Schmerzen, Darmbeschwerden, hormonellen Veränderungen
+  oder Stress." aus dem Hero der Startseite entfernt – der neue Tagline-Claim steht jetzt
+  direkt über dem CTA-Button, ohne zusätzlichen Fließtext. Der „20 Jahre Erfahrung"-Gedanke
+  bleibt über die Bildunterschrift neben dem Foto erhalten.
+
 ## 2026-09-14 (allerletzter Stand) – Zentraler Claim + konsequente Ich-Form
 
 ### Geändert
