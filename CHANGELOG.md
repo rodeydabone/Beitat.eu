@@ -1,6 +1,105 @@
 # Changelog
 
-## 2026-09-16 (Design-Check Events) – Events-Übersicht nach Ellens Check angepasst
+## 2026-09-16 (Instagram-Reel Catering-Team) – Eingebetteter Beitrag im Rahmenprogramm-Abschnitt
+
+### Hinzugefügt
+- Im Abschnitt „Rahmenprogramm & Catering" auf `events-naturheilkundetag.html` einen echten
+  Instagram-Reel des Fördervereins internationale Frauen e.&nbsp;V. (Catering-Team) eingebettet
+  – über Instagrams offizielles Embed-Feature, nach dem gleichen Zwei-Klick-Datenschutz-Prinzip
+  wie die Google-Maps-Karte auf der Kontaktseite: Der Beitrag lädt nicht automatisch beim
+  Seitenaufruf, sondern erst nach bewusstem Klick auf „Instagram-Reel anzeigen". Neues Script
+  `assets/js/instagram-consent.js`.
+- Datenschutzerklärung von `impressum-event.html` um Abschnitt „5. Eingebetteter
+  Instagram-Beitrag" ergänzt (analog zum Google-Maps-Abschnitt bei der Praxis), Nummerierung der
+  folgenden Abschnitte angepasst, `id="datenschutz"`-Anker auf dieser Seite ergänzt (fehlte
+  bisher).
+
+### Geändert
+- Grundlage: `docs/Ellens Website - Design check - landing page Naturheilkundetag.docx`.
+- Seitentitel ersetzt durch „2. Alzenauer Naturheilkundetag 2026" mit kurzer Datums-/Zeitzeile
+  „27. September '26 · 10–18 Uhr · Eintritt frei" direkt darunter, etwas tiefer im Balken.
+- Kompletter Begrüßungstext neben dem Flyer ersetzt durch Ellens neuen, persönlichen Einladungstext
+  („Was tut mir gut? ... Ich freue mich auf Sie! Ellen Beitat, Alzenau im September 2026").
+- Unter dem Flyer-Bild neuer Hinweis „Für mehr, wische nach rechts →" ergänzt (verweist auf die
+  Wisch-Navigation zur Flyer-Rückseite).
+- „Veranstalter: Naturheilpraxis Beitat" → „Naturheilpraxis Beitat, Alzenau".
+- „Unterstützt durch"-Liste umsortiert (Union Deutscher Heilpraktiker, Förderverein internationale
+  Frauen e.V., Netzwerk gesund SEIN) und den Logoleiste-Platzhalter entfernt (Ellen: keine Logos
+  nötig, nur Text).
+- Überschriften „Aussteller" → „Unsere Aussteller", „Vortragsprogramm" → „Unser Vortragsprogramm".
+- Neuer Abschnitt „Rahmenprogramm & Catering" ergänzt (Eröffnung, Grußworte, Buffet) als
+  zweispaltige Zeitplan-Liste (Uhrzeit links, Text rechts, linksbündig) – neue CSS-Klasse
+  `.schedule-list` für wiederverwendbare Zeitplan-Layouts.
+- Kleine Tippfehler aus der Vorlage korrigiert („dr Sängerin" → „der Sängerin", „Bürgermeistern" →
+  „Bürgermeisters", „Heilpaktiker" → „Heilpraktiker").
+
+### Geändert
+- Footer-Instagram-Link auf allen 10 Praxis-Seiten von der Hashtag-Seite `#NaturheilpraxisBeitat`
+  auf den echten Account `@naturheilpraxis_beitat` umgestellt (Linktext + href), ohne die
+  QR-Tracking-Parameter aus dem gelieferten Link (nur für den gedruckten QR-Code gedacht).
+- Nebenbei einen Fehler in der Datenschutzerklärung (`impressum-praxis.html`, Abschnitt 6)
+  korrigiert: dort stand noch ein zuvor angenommener, falscher Handle
+  „@Naturheilpraxis_Alzenau" – jetzt auf den echten Handle „@naturheilpraxis_beitat" korrigiert.
+
+## 2026-09-16 (Instagram-Verlinkung Naturheilkundetag) – Event-Account verlinkt
+
+### Geändert
+- Die 3 Textnennungen „@alzenauernaturheilkundetag" auf `events-naturheilkundetag.html` (bisher
+  reiner Text) sind jetzt echte Links zum Instagram-Profil (ohne die QR-Code-Tracking-Parameter,
+  die nur für den gedruckten QR-Code gedacht sind). Die QR-Codes selbst bleiben unverändert
+  (zum Scannen, nicht zum Klicken gedacht).
+- Weiterhin offen: der Instagram-Handle für den Footer-Hashtag-Link `#NaturheilpraxisBeitat` auf
+  den Praxis-Seiten (anderer Account als der Event-Account) – falls gewünscht, bitte den genauen
+  @-Namen der Naturheilpraxis nachreichen.
+
+## 2026-09-16 (Finaler Pre-Launch-Checkup) – Nav-Prominenz, Rechtscheck, Responsive-Test, Dokumentenabgleich
+
+### Geändert
+- **Events in die Hauptnavigation geholt:** Der Reiter „Events" steckte auf allen 17 Seiten nur in
+  einer kleinen, optisch untergeordneten Sub-Navigation (kleinere Schrift, andere Farbe, unterhalb
+  der Hauptnav) – obwohl es sich um ein reales, datiertes, aktiv beworbenes Event mit eigenem
+  Flyer, Ausstellerverzeichnis und Vortragsprogramm handelt. Jetzt gleichwertiger Punkt in der
+  Hauptnavigation (zwischen „Über mich" und „Kontakt aufnehmen"). Die dadurch leere Sub-Navigation
+  wurde auf allen Seiten entfernt, ungenutztes CSS dafür bereinigt.
+- **Bugfix (durch das neue Nav-Item aufgedeckt):** Bei Desktop-Breiten zwischen ca. 1000–1079px
+  (z. B. altes 1024px-Tablet-Querformat, nicht maximierte Browserfenster) brach „Kontakt aufnehmen"
+  als 7. Punkt in eine zweite, hässliche Zeile um – die Reiterzeile war genau 1px zu breit für den
+  verfügbaren Platz. Abstand zwischen den Nav-Punkten von 26px auf 20px reduziert, passt jetzt mit
+  Puffer.
+- **Rechtlicher Nachtrag (DSGVO):** Zwei echte Lücken gefunden und behoben – die Datenschutz-
+  erklärungen aller 3 Marken (Praxis, Kräuterwerkstatt, Event) erwähnten Google Fonts nicht, obwohl
+  der Dienst auf jeder Seite eingebunden ist (IP-Übermittlung an Google). Neuer Abschnitt „Google
+  Fonts" in allen 3 Impressum-Seiten ergänzt. Zusätzlich verlinkte die Kontaktseite auf den
+  Datenschutz-Abschnitt für Informationen zu Google Maps, aber ein passender Abschnitt fehlte dort
+  komplett – neuer Abschnitt „Google Maps" in `impressum-praxis.html` ergänzt (einzige Seite mit
+  Maps-Einbindung). Abschnittsnummerierung entsprechend angepasst.
+
+### Geprüft (keine Änderung nötig)
+- Alle 8 Design-Check-Dokumente (`Home` inkl. rev1, `Praxisschwerpunkte` inkl. rev1, `Kontakt`,
+  `Therapieangebote`, `Über mich`, `Events`) gegen den aktuellen Stand abgeglichen – jeder Punkt
+  ist im Code wiedergefunden worden, keine vergessenen Punkte.
+- Keine riskanten Heilversprechen-Formulierungen (HWG) im gesamten Seiteninhalt gefunden.
+- HWG-Trennung Beschwerdebilder ↔ Therapieangebot weiterhin intakt, alle 3 Warnhinweis-Boxen auf
+  Beschwerdebilder noch vorhanden.
+- Health-Claims-VO-Hinweis für Nahrungsergänzungsmittel (Kräuterwerkstatt) weiterhin korrekt.
+- Alle 3 Impressum-Seiten: Berufsbezeichnung/Aufsichtsbehörde (Praxis), „Verantwortlich für den
+  Inhalt" (MStV §18 Abs. 2) und Beschwerderecht-Adresse vollständig und ohne Platzhalter ausgefüllt.
+- Responsive-Test (kein horizontaler Overflow) für alle 17 Seiten bei 375px (Mobile), 768px
+  (Tablet) und 1280px (Desktop) durchlaufen – keine Layout-Brüche gefunden.
+- Filter-Funktion auf Therapieangebot nach den Umbenennungen weiterhin funktional getestet.
+- Wisch-Navigation der Flyer-Bilder auf der Naturheilkundetag-Seite bei Tablet- und
+  Desktop-Breite erneut funktional bestätigt.
+
+### Offen (Entscheidung/Input von Ellen nötig, siehe Chat-Zusammenfassung)
+- Instagram-Fußzeilen-Link verwendet aktuell die Hashtag-Seite `#NaturheilpraxisBeitat` – falls
+  ein bestimmter Account-Handle gewünscht ist, bitte den genauen @-Namen nennen.
+- Verbleibende Platzhalter vor Live-Gang: Footer-Zeile „Prototyp, noch nicht live" (alle Seiten),
+  Events-Übersicht („weitere Events / Seminarzentrum-Termine"), Seminarzentrum (Sortiments-
+  beschreibung, Termine), Naturheilkundetag-Logoleiste, gesamter „Wissen & Blog"-Bereich (aktuell
+  ohnehin aus der Nav ausgeblendet).
+- Kontaktformular sendet weiterhin nicht ab (separates Thema, siehe Formular-Besprechung).
+- Hosting-Umzug auf die web.de-Domain beitat.eu noch nicht erfolgt (GitHub Pages ist aktuell nur
+  die Testversion).
 
 ### Geändert
 - Grundlage: `docs/Ellens Website - Design check - Events.docx`. Dokument stammt von vor der

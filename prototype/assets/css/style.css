@@ -176,27 +176,6 @@ nav.main-nav a:hover,
 nav.main-nav a[aria-current="page"] {
   border-color: var(--gold);
 }
-nav.sub-nav {
-  margin-top: 4px;
-  padding-top: 8px;
-  border-top: 1px solid rgba(10, 90, 22, 0.15);
-}
-nav.sub-nav ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin: 0;
-  padding: 0;
-  font-size: 0.85rem;
-}
-nav.sub-nav a {
-  display: block;
-  text-decoration: none;
-  color: var(--bordeaux);
-  padding: 8px;
-}
-
 @media (min-width: 1000px) {
   /* Logo + Reiterzeile als Einheit linksbündig, in der Höhe mittig (nicht über
      die ganze Breite verteilt und nicht zentriert). */
@@ -216,11 +195,8 @@ nav.sub-nav a {
     align-items: center;
     gap: 20px;
   }
-  nav.main-nav ul { flex-direction: row; gap: 26px; flex-wrap: wrap; }
+  nav.main-nav ul { flex-direction: row; gap: 20px; flex-wrap: wrap; }
   nav.main-nav a { padding: 0 0 4px; font-size: 1.1rem; }
-  nav.sub-nav { margin-top: 0; padding-top: 0; border-top: none; }
-  nav.sub-nav ul { flex-direction: row; gap: 16px; }
-  nav.sub-nav a { padding: 0; }
 }
 
 /* ---------- Hero ---------- */
@@ -916,6 +892,35 @@ a.lightbox-link { position: relative; }
 .doc-page-nav:hover { background: #fff; }
 .doc-page-nav-prev { left: 10px; }
 .doc-page-nav-next { right: 10px; }
+.swipe-hint {
+  max-width: 480px;
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--bordeaux);
+  text-align: right;
+}
+
+/* ---------- Zeitplan (z.B. Rahmenprogramm & Catering) ---------- */
+.schedule-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+.schedule-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  text-align: left;
+}
+.schedule-time {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  color: var(--gruen-dunkel);
+  white-space: nowrap;
+}
+.schedule-text { margin: 0; }
 .doc-image-block .qr-block {
   display: flex;
   align-items: center;
@@ -1071,6 +1076,28 @@ a.lightbox-link { position: relative; }
   line-height: 0; /* iframe-Whitespace am unteren Rand vermeiden */
 }
 .map-consent-loaded iframe { display: block; }
+
+/* Instagram-Embed-Zwei-Klick-Lösung (Datenschutz, gleiches Prinzip wie .map-consent):
+   zeigt zunächst nur Hinweistext + Button, erst nach Klick ersetzt instagram-consent.js
+   den Inhalt durch das echte Instagram-Embed. */
+.instagram-embed-consent {
+  margin-top: 24px;
+  max-width: 540px;
+  border: 1px dashed var(--bordeaux);
+  border-radius: var(--radius);
+  padding: 20px;
+  background: #fff;
+}
+.instagram-embed-consent-text p {
+  font-size: 0.85rem;
+  margin: 0 0 14px;
+}
+.instagram-embed-consent-loaded {
+  padding: 0;
+  border-style: solid;
+  display: flex;
+  justify-content: center;
+}
 
 /* ---------- Lightbox (Flyer-/Dokumentbilder vergrößert im selben Tab) ----------
    Wird per assets/js/lightbox.js für alle a.lightbox-link erzeugt: ein Overlay
