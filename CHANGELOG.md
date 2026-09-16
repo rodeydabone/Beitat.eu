@@ -1,6 +1,59 @@
 # Changelog
 
-## 2026-09-16 (Bugfix Catering-QR-Code zu groß) – Größe korrigiert
+## 2026-09-16 (Kontaktformular funktional) – PHP-Mail-Versand statt Drittanbieter
+
+### Hinzugefügt
+- `send-mail.php`: nimmt die Formulardaten von `kontakt.html` entgegen, validiert Pflichtfelder
+  (Name, E-Mail, Nachricht, Datenschutz-Checkbox), prüft die E-Mail-Adresse, schützt gegen
+  Header-Injection und verschickt die Anfrage per PHP `mail()` an
+  `naturheilpraxis-beitat@web.de`. Keine Datenbank, keine dauerhafte Speicherung, kein
+  Drittanbieter – bewusst so gewählt, weil das Hosting (web.de, PHP 8.3 bestätigt aktiv) das ohne
+  Umweg über einen externen Formular-Dienst ermöglicht.
+- Honeypot-Feld (`website`) gegen simple Spam-Bots – für Menschen unsichtbar, Bots füllen es oft
+  blind aus.
+- Pflicht-Checkbox „Ich habe die Datenschutzerklärung gelesen..." vor dem Absenden.
+- Erfolgs-/Fehlermeldung direkt auf der Kontaktseite nach dem Absenden (kein Redirect auf eine
+  separate Dankeseite), via `assets/js/contact-form-status.js` (liest `?status=` aus der URL nach
+  dem Redirect von `send-mail.php` und räumt die URL danach wieder auf).
+- Datenschutzerklärung (`impressum-praxis.html`, Abschnitt 3) um das Kontaktformular ergänzt.
+
+### Geändert
+- `kontakt.html`: Formular sendet jetzt wirklich ab (`action="send-mail.php"` statt
+  `onsubmit="return false"`), „⚠ Prototyp"-Warnhinweis entfernt, Pflichtfelder mit `*` markiert
+  und `required` ergänzt.
+
+### Lokal getestet
+- PHP 8.3 lokal installiert (winget, Paket-ID `PHP.PHP.8.3` – passend zur bestätigten PHP-Version
+  auf web.de) und `send-mail.php` per `php -S` gegen den `prototype`-Ordner durchgetestet:
+  Honeypot, fehlende Pflichtfelder, ungültige E-Mail-Adresse, nicht akzeptierte
+  Datenschutz-Checkbox und der Erfolgsfall lösen jeweils den korrekten Redirect
+  (`?status=success`/`?status=error`) aus; die Status-Banner auf `kontakt.html` werden korrekt
+  ein-/ausgeblendet.
+- Dabei einen echten Bug gefunden und behoben: schlug `mail()` fehl, gab PHP eine Warnung als
+  HTML-Text aus, *bevor* der `header()`-Redirect laufen konnte („headers already sent") – der
+  Besucher hätte eine kaputte Warnseite statt der sauberen Fehlermeldung gesehen. Behoben durch
+  `@mail(...)` (Warnung unterdrückt, der Erfolg wird ohnehin über den Rückgabewert geprüft).
+
+### Wichtig – noch zu testen nach dem Upload
+- Der tatsächliche Mailversand ließ sich lokal nicht prüfen (kein SMTP-Server auf dem
+  Windows-Rechner; `mail()` schlägt dort erwartungsgemäß fehl). Nach dem Hochladen auf web.de
+  bitte einmal eine Testnachricht über das echte Formular schicken und prüfen, ob sie in
+  `naturheilpraxis-beitat@web.de` ankommt (ggf. auch im Spam-Ordner schauen – manche Mailserver
+  werten PHP-`mail()`-Versand aus fremden Domains strenger).
+
+### Geändert
+- „© 2026 Naturheilpraxis Beitat – Prototyp, noch nicht live." → „© 2026 Naturheilpraxis Beitat"
+  in der Fußzeile aller 18 Seiten.
+- Events-Übersicht: „[Platzhalter: weitere Events / Seminarzentrum-Termine werden hier ergänzt]"
+  → „Weitere Termine folgen in Kürze." (normale Formulierung statt sichtbarer Platzhalter-Klammer).
+
+### Offen – Entscheidung/Input vor bzw. nach Go-Live nötig
+- **Seminarzentrum** (`seminarzentrum.html`, nicht in der Hauptnav verlinkt, nur per Direktlink):
+  enthält noch 2 echte Platzhalter, die reale Inhalte von Ellen brauchen – Sortimentsbeschreibung
+  und aktuelle Termine/Anmeldung. Kann ich nicht selbst ausfüllen, ohne Fakten zu erfinden.
+- **Wissen & Blog** (`wissen.html`, `wissen-beispiel-eintrag.html`): weiterhin reiner
+  Platzhalter-Inhalt, aber unkritisch – Reiter ist aus der Hauptnav ausgeblendet, Seiten nur per
+  Direktlink erreichbar.
 
 ### Behoben
 - Der QR-Code beim Catering-Hinweis im Abschnitt „Rahmenprogramm & Catering" wurde in voller
