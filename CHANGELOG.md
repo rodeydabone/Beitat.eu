@@ -1,6 +1,37 @@
 # Changelog
 
-## 2026-09-16 (Korrektur: Catering-Reel doch nur als QR-Code) – Embed-Lösung wieder entfernt
+## 2026-09-16 (Bugfix Catering-QR-Code zu groß) – Größe korrigiert
+
+### Behoben
+- Der QR-Code beim Catering-Hinweis im Abschnitt „Rahmenprogramm & Catering" wurde in voller
+  Bildgröße (583×587px) angezeigt statt kompakt wie die anderen QR-Codes auf der Seite: Der
+  `.qr-block` steckte nicht in einem `.doc-image-block`-Wrapper, wodurch die 110px-Verkleinerungs-
+  regel dafür nicht griff. Jetzt konsistent mit den übrigen Instagram-QR-Stellen.
+
+## 2026-09-16 (Design-Check Beschwerdebilder + rote Anmerkungen) – Nachgereichtes Dokument & Screenshot-Feedback
+
+### Geändert
+- Grundlage: `docs/Ellens Website - Design check - Beschwerdebilder.docx` (nachträglich im
+  docs-Ordner ergänzt, war zuvor nicht vorhanden) sowie handschriftliche rote Anmerkungen auf
+  2 WhatsApp-Screenshots (Landing Page Naturheilkundetag, Kontaktseite).
+- **Beschwerdebilder:** Seitentitel tiefer im Balken, Unterzeile ersetzt durch „Wenn Beschwerden
+  bleiben, lohnt sich der ganzheitliche Blick". Listen-Korrekturen: „Allergiebehandlung
+  ganzheitlich" und „Tinnitus" aus dem Schmerztherapie-Block entfernt (ersteres in den Darm-Block
+  verschoben, „Reizdarmsyndrom" dort komplett gestrichen, da an anderer Stelle bereits vorhanden).
+  „Morbus Basedow – begleitend" bei Immunsystem und bei Schilddrüse & Stoffwechsel ergänzt. „Akne"
+  und „Akne inversa" aus beiden Haut-Listen entfernt. Überschrift „Frauengesundheit & Zyklus" →
+  „Frauengesundheit, Zyklus & Kinderwunschbegleitung". „Burnout-Symptomatik" bei Stresshormonen um
+  „– begleitend" ergänzt. „Neurodermitis – begleitend" zusätzlich im Stress-Block ergänzt.
+- **Bugfix (Ellens Hinweis):** Uneinheitlicher Zeilenabstand zwischen einspaltigen und
+  zweispaltigen Listen behoben – `ul.two-col`-Einträge hatten sowohl eigenes `margin-bottom` als
+  auch Grid-`row-gap`, wodurch der Abstand doppelt so groß war wie bei normalen Listen. Jetzt
+  einheitlich (`margin-bottom: 0` bei `.two-col li`, `row-gap` übernimmt den Abstand) – betrifft
+  alle Seiten, die `ul.two-col` verwenden (Beschwerdebilder, Therapieangebot).
+- **Landing Page Naturheilkundetag:** Einleitungsfrage „Was tut mir gut? ..." ist jetzt eine
+  echte Überschrift (`<h2>`) statt normaler Fließtext.
+- **Kontakt:** Zeilenumbruch vor „ich freue mich auf Ihre Kontaktaufnahme" ergänzt (Muster wie
+  auf den anderen Seiten: ein Satz/Teilsatz je Zeile). Mobilnummer „0173 – 304 67 66" bei der
+  Telefonnummer ergänzt.
 
 ### Geändert
 - Auf Wunsch zurückgenommen: Der eingebettete Instagram-Reel im Abschnitt „Rahmenprogramm &

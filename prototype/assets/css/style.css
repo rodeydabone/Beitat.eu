@@ -1019,6 +1019,10 @@ a.lightbox-link { position: relative; }
     column-gap: 32px;
     row-gap: 4px;
   }
+  /* row-gap übernimmt den vertikalen Abstand im Grid – das li-eigene
+     margin-bottom würde sich sonst addieren (doppelter Abstand ggü.
+     einspaltigen Listen ohne .two-col). */
+  ul.two-col li { margin-bottom: 0; }
 }
 
 /* ---------- Kontaktformular ---------- */
