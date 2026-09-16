@@ -1,5 +1,38 @@
 # Changelog
 
+## 2026-09-16 (Design-Check Praxis & Schwerpunkte) – Unterseite nach Ellens 2. Design-Check-Dokument angepasst
+
+### Geändert
+- Seitentitel „Praxis & Schwerpunkte" etwas weiter nach unten in den grünen Balken gerückt
+  (mehr Abstand zur Reiterzeile).
+- Platzhaltertext unter dem Titel durch die vorgegebene 3-Satz-Formulierung ersetzt: „Weil
+  Gesundheit mehr ist als einzelne Beschwerden zu behandeln. Ihr Körper spricht mit Ihnen, ich
+  helfe zu verstehen, was ihn aus dem Gleichgewicht gebracht hat. Ganzheitliche Naturheilkunde
+  für Sie & Ihn & die ganze Familie – mit 20 Jahren Erfahrung und viel Einfühlungsvermögen." –
+  je Satz eine eigene Zeile, wie schon auf der Startseite.
+- Block „Ganzheitliche Schmerztherapie": Flyer-Vorderseite (Klappflyer-Deckblatt) zeigt jetzt
+  dauerhaft nur noch die rechte Hälfte („Das Kreuz mit dem Kreuz" statt Titel- + Visitenkarten-
+  Hälfte nebeneinander) – diesmal als echte zugeschnittene Bilddatei
+  (`assets/img/flyer-kreuz-crop-right.webp`), nicht mehr per CSS-Trick. Datei wurde per Canvas-
+  Zuschnitt aus der vorhandenen `flyer-kreuz.webp` erzeugt (rechte ~48,5%, exakt an der Flyer-
+  Falzkante), da der Rohordner mit den Original-Flyer-Dateien nicht mehr im Projekt liegt.
+  Zwischenzeitlich getestete Hover-Zoom-Variante (CSS `transform: scale()`) wieder entfernt, da
+  jetzt eine echte Zuschnittsdatei vorliegt. Alt-Text/Aria-Label der Flyer-Rückseite korrigiert
+  auf den tatsächlichen Original-Titel „Heilsame Begegnung von Mensch & Pflanze" (vorher stand
+  dort noch der Titel der Vorderseite).
+- Reihenfolge/Umbenennung der 4 Schwerpunkte-Karten (Hormone/Schilddrüse vor Stress/Psyche,
+  einheitlich 2-zeilige Überschriften) war durch den vorherigen Home-Design-Check bereits erledigt
+  und wurde nur gegengeprüft.
+- Bug gefunden und behoben: Die `min-height` der Karten-Überschriften (`.img-card > h3`) hatte das
+  eigene Padding nicht mit eingerechnet (box-sizing: border-box) – bei zweizeiligen Überschriften
+  (z. B. „Hormone, Schilddrüse & Frauengesundheit") reichte der reservierte Platz nicht, die Box
+  wuchs über einzeilige Karten hinaus, wodurch Bild/Buttons pro Karte unterschiedlich hoch saßen.
+  `min-height` rechnet Padding jetzt mit ein (`calc(2 * 1.25rem * 1.3 + 22px)`) – alle 4
+  Kartenköpfe sind jetzt exakt gleich hoch, unabhängig von 1 oder 2 Textzeilen.
+- Grundlage: `docs/Ellens Website - Design check - Praxisschwerpunkte.docx`. Offen/nicht
+  übernommen: „wenn möglich" auch die Flyer-Rückseite (S.2) nur zur Hälfte zeigen – dort ist
+  bereits nur ein Panel abgebildet, keine Änderung nötig.
+
 ## 2026-09-16 (nach Design-Check) – Feinschliff Kopf-/Fußzeile & Home nach Ellens Design-Check
 
 ### Geändert

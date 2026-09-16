@@ -689,7 +689,10 @@ footer.site-footer {
   padding: 18px 16px 4px;
   font-size: 1.25rem;
   line-height: 1.3;
-  min-height: 2.6em;
+  /* min-height muss das Padding mit einrechnen (box-sizing: border-box) –
+     sonst ist bei zweizeiligen Überschriften zu wenig Platz und die Box
+     wächst über einzeilige Karten hinaus (uneinheitliche Kachelhöhen). */
+  min-height: calc(2 * 1.25rem * 1.3 + 22px);
   display: flex;
   align-items: center;
   justify-content: center;
