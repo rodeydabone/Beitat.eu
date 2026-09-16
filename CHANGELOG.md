@@ -1,6 +1,40 @@
 # Changelog
 
-## 2026-09-16 (Naturheilkundetag: Wisch-Übergang statt Karte/Lightbox) – Flyer-Vorder-/Rückseite
+## 2026-09-16 (Design-Check Kontakt/Therapieangebote/Über mich) – 3 weitere Seiten nach Ellens Check angepasst
+
+### Geändert
+- Grundlage: `docs/Ellens Website - Design check - Kontakt.docx`, `...Therapieangebote.docx`,
+  `...Über mich.docx` (keine Revisions-Markierungen, daher alle Punkte berücksichtigt).
+- **Kontakt:** Seitentitel etwas tiefer in den Balken gerückt; Unterzeile ersetzt durch „Der erste
+  Schritt darf ganz unkompliziert sein. Ob Sie einen Termin vereinbaren möchten, oder zunächst
+  Fragen haben – ich freue mich auf Ihre Kontaktaufnahme." Google-Maps-Datenschutzhinweis war
+  bereits an die Datenschutzerklärung im Impressum verlinkt (Ellens Rückfrage dazu im Dokument) –
+  keine Änderung nötig, nur gegengeprüft.
+- **Therapieangebot:** Seitentitel tiefer gerückt; Unterzeile nach „...der Praxis –" umgebrochen
+  und im Blocksatz ausgerichtet. Filter-Kategorien umbenannt: „Psyche, Gespräch & Trauma" →
+  „Gesprächs- & Psychotherapien", „Frauengesundheit & Hormone" → „Hormonbezogene Therapien"
+  (jeweils Checkbox-Label + Ergebnis-Überschrift). Hinweistext „Welche Methode im Einzelfall
+  sinnvoll ist, besprechen wir gemeinsam im persönlichen Gespräch." entfernt, stattdessen neuer
+  Absatz vor dem Kontakt-Button ergänzt: „Gern erläutere ich Ihnen persönlich, wie das jeweilige
+  Verfahren eingesetzt wird und ob es zu Ihrer jeweiligen Situation passen kann. Welche Behandlung
+  sinnvoll sein kann, bespreche ich mit Ihnen nach einer ausführlichen Anamnese und individueller
+  Betrachtung." Im Block „Hormonbezogene Therapien": „Ganzheitliche Frauenheilkunde" →
+  „Methoden der ganzheitlichen Frauenheilkunde".
+- **Über mich:** Seitentitel tiefer gerückt; „20 Jahre Expertise..." auf eigene Zeile umgebrochen.
+  Zwischenüberschrift „Mein Weg zur Darmexpertin" → „Mein Weg zur Heilpraktikerin und
+  Darmexpertin". Textanfang „Seit mehr als 20 Jahren..." → „Seit nunmehr 20 Jahren...". Neuer
+  Absatz nach dem Wege-entwickeln-Absatz ergänzt: „Meine Verbundenheit mit Heilkräutern begann
+  schon in meiner Kindheit. Das Wissen um ihre traditionelle Anwendung wurde in meiner Familie von
+  Generation zu Generation weitergegeben. Was damals ganz selbstverständlich zu meinem Alltag
+  gehörte, wurde später zu einer echten Leidenschaft: Heute ist die Phytotherapie ein wichtiger
+  Bestandteil meiner ganzheitlichen naturheilkundlichen Arbeit." Abstand zwischen Bild-Sektion und
+  dem Fließtext-Block darunter reduziert (padding-top der zweiten Sektion entfernt).
+
+### Offen
+- Therapieangebot, Block „Hormonbezogene Therapien": Ellen wollte auch „Biologische /
+  homöopathische Hormontherapie" durch einen neuen Text ersetzen, der Ersatztext fehlte im
+  Dokument (Satz bricht nach „ersetze durch:" ab) – bisher unverändert gelassen, bitte den
+  gewünschten Text nachreichen.
 
 ### Geändert
 - Nochmal überarbeitet nach Feedback: Flyer Seite 1/2 sehen jetzt genau wie die anderen 3
