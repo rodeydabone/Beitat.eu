@@ -1,5 +1,39 @@
 # Changelog
 
+## 2026-09-16 (nach Design-Check) – Feinschliff Kopf-/Fußzeile & Home nach Ellens Design-Check
+
+### Geändert
+- Hero-Claim (Home): Untertitel „Ihr Körper spricht mit Ihnen. Ich helfe Ihnen, ihn besser zu
+  verstehen." auf zwei Zeilen umgebrochen (ein Satz je Zeile).
+- Zweiter Hero-Untertitel neu formuliert: „Einfühlsame Begleitung bei Schmerzen, Darm-, Immun-,
+  Haut- und Hormonthemen, Frauengesundheit sowie Psyche und Stress" – Farbe auf einen dunklen
+  Orangeton (`--orange-dunkel`, neu in der Palette) statt Bordeaux gestellt, zur besseren
+  Abgrenzung von Fließtext-Bordeaux.
+- Bildunterschrift beim Mitgliedssiegel: „Gelistete Heilpraktikerin bei" → „Mitglied" (Text jetzt:
+  „Mitglied der Union Deutscher Heilpraktiker, Landesverband Hessen e. V.").
+- „Wozu benötigen Sie meine Hilfe?"-Lead: „ich begleite Sie individuell." → „ich begleite Sie gern
+  und individuell."
+- Schwerpunkte einheitlich an 3 Stellen (Home-Kacheln, Praxis & Schwerpunkte, Beschwerdebilder)
+  umbenannt/neu sortiert: 3. Block heißt jetzt „Hormone, Schilddrüse & Frauengesundheit" (ergänzt
+  um „Schilddrüse") und steht vor dem 4. Block „Stress, Psyche & Erschöpfung" (zuvor umgekehrte
+  Reihenfolge auf Home und Praxis & Schwerpunkte).
+- Footer-Link „Impressum" auf allen Seiten zu „Impressum & DSGVO" präzisiert.
+- Footer-Linkfarbe von Bordeaux auf Grün (`--gruen-dunkel`) vereinheitlicht – wirkte zuvor an
+  mehreren Stellen zu rötlich; Footer-Überschriften etwas größer gesetzt, damit sie den Inhalten
+  gegenüber klar erkennbar bleiben.
+- Reiterzeile (Hauptnavigation): Schriftgröße vergrößert und im Verhältnis zum Logo in der
+  Kopfzeile ausgerichtet; auf Desktop-Breite (≥1000px) wird die Kopfzeile jetzt als Einheit
+  (Logo + Nav) mittig statt an den Rändern verteilt angeordnet.
+- Grüner Kopf-/Fußzeilen-Balken (`.band`) schmaler gestellt (reduzierte Mindesthöhe).
+- Seitenhintergrund (`--creme`) etwas wärmer/beiger gestellt – war zuvor bewusst sehr hell
+  abgeschwächt worden (siehe Kommentar in der CSS-Variable) und wirkte dadurch fast weiß;
+  jetzt sichtbar beige zwischen den grünen Kopf-/Fußzeilen-Bändern, ohne so satt wie die
+  ursprüngliche Farbdatei (#fcfed7) zu wirken.
+- Grundlage: Ellens Feedback-Dokument `docs/Ellens Website - Design check - Home Kopfzeile
+  Fusszeile.docx`. Nicht übernommen bzw. offen: die genaue Orange-Nuance sowie Feinjustierung der
+  Zentrierung von Kopf-/Reiterzeile sind Geschmacksfragen ohne Referenzdatei – bitte in der
+  Vorschau gegenprüfen und bei Bedarf nachjustieren.
+
 ## 2026-09-16 (allerletzt) – Reiter „Wissen & Blog" geparkt (auskommentiert)
 
 ### Geändert
