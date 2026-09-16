@@ -1,6 +1,17 @@
 # Changelog
 
-## 2026-09-16 (Instagram-Reel Catering-Team) – Eingebetteter Beitrag im Rahmenprogramm-Abschnitt
+## 2026-09-16 (Korrektur: Catering-Reel doch nur als QR-Code) – Embed-Lösung wieder entfernt
+
+### Geändert
+- Auf Wunsch zurückgenommen: Der eingebettete Instagram-Reel im Abschnitt „Rahmenprogramm &
+  Catering" (`events-naturheilkundetag.html`) ist jetzt ein reiner QR-Code-Verweis, im gleichen
+  Stil wie die anderen Instagram-Stellen auf der Seite (Aussteller, Vortragsprogramm) – kein
+  Embed mehr, keine Video-/GEMA-Problematik.
+- `assets/js/instagram-consent.js` und die zugehörigen `.instagram-embed-consent`-CSS-Regeln
+  wieder entfernt (waren nur für den Embed nötig).
+- Datenschutzerklärung von `impressum-event.html` entsprechend zurückgesetzt: Abschnitt
+  „Eingebetteter Instagram-Beitrag" entfernt, Nummerierung der übrigen Abschnitte wieder
+  angepasst. Der zuvor ergänzte `id="datenschutz"`-Anker (fehlte davor komplett) bleibt bestehen.
 
 ### Hinzugefügt
 - Im Abschnitt „Rahmenprogramm & Catering" auf `events-naturheilkundetag.html` einen echten

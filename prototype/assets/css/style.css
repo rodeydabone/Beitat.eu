@@ -1077,28 +1077,6 @@ a.lightbox-link { position: relative; }
 }
 .map-consent-loaded iframe { display: block; }
 
-/* Instagram-Embed-Zwei-Klick-Lösung (Datenschutz, gleiches Prinzip wie .map-consent):
-   zeigt zunächst nur Hinweistext + Button, erst nach Klick ersetzt instagram-consent.js
-   den Inhalt durch das echte Instagram-Embed. */
-.instagram-embed-consent {
-  margin-top: 24px;
-  max-width: 540px;
-  border: 1px dashed var(--bordeaux);
-  border-radius: var(--radius);
-  padding: 20px;
-  background: #fff;
-}
-.instagram-embed-consent-text p {
-  font-size: 0.85rem;
-  margin: 0 0 14px;
-}
-.instagram-embed-consent-loaded {
-  padding: 0;
-  border-style: solid;
-  display: flex;
-  justify-content: center;
-}
-
 /* ---------- Lightbox (Flyer-/Dokumentbilder vergrößert im selben Tab) ----------
    Wird per assets/js/lightbox.js für alle a.lightbox-link erzeugt: ein Overlay
    mit abgedunkeltem Hintergrund, Klick außerhalb des Bildes oder Escape schließt es. */
