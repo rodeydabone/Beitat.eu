@@ -1,6 +1,21 @@
 # Changelog
 
-## 2026-09-16 (Design-Check Kontakt/Therapieangebote/Über mich) – 3 weitere Seiten nach Ellens Check angepasst
+## 2026-09-16 (Design-Check Events) – Events-Übersicht nach Ellens Check angepasst
+
+### Geändert
+- Grundlage: `docs/Ellens Website - Design check - Events.docx`. Dokument stammt von vor der
+  Wisch-Navigation bei den Flyer-Bildern auf der Detailseite – diese bleibt unverändert bestehen,
+  nur die hier neu genannten Punkte wurden umgesetzt.
+- Seitentitel „Events" weiter nach unten in den Balken gerückt (2 Tabs statt der sonst üblichen 1).
+- Unterzeile ersetzt durch „Begegnungen, Wissen und neue Impulse rund um Gesundheit und
+  Naturheilkunde. Freuen Sie sich auf Veranstaltungen mit inspirierenden Themen, persönlichen
+  Begegnungen und neuen Impulsen für Ihre Gesundheit."
+- Event-Karte „2. Alzenauer Naturheilkundetag": Text „Gesundheitsmesse mit Vortragsprogramm"
+  ersetzt durch „Ein Tag. Viele Impulse. Neue Perspektiven auf Gesundheit. Lassen Sie sich
+  inspirieren, entdecken Sie Neues und kommen Sie mit Menschen ins Gespräch, die Gesundheit
+  ganzheitlich denken." – der Infoblock „10–18 Uhr · Eintritt frei · Alte Post..." bleibt wie
+  gewünscht direkt dahinter stehen.
+- Button „Details ansehen" → „Das erwartet Sie".
 
 ### Geändert
 - Grundlage: `docs/Ellens Website - Design check - Kontakt.docx`, `...Therapieangebote.docx`,
@@ -30,11 +45,9 @@
   Bestandteil meiner ganzheitlichen naturheilkundlichen Arbeit." Abstand zwischen Bild-Sektion und
   dem Fließtext-Block darunter reduziert (padding-top der zweiten Sektion entfernt).
 
-### Offen
-- Therapieangebot, Block „Hormonbezogene Therapien": Ellen wollte auch „Biologische /
-  homöopathische Hormontherapie" durch einen neuen Text ersetzen, der Ersatztext fehlte im
-  Dokument (Satz bricht nach „ersetze durch:" ab) – bisher unverändert gelassen, bitte den
-  gewünschten Text nachreichen.
+### Nachtrag (gleicher Tag)
+- Offene Stelle geschlossen: „Biologische / homöopathische Hormontherapie" →
+  „Bioidentische / homöopathische Hormonersatztherapie" (Ersatztext von Ellen nachgereicht).
 
 ### Geändert
 - Nochmal überarbeitet nach Feedback: Flyer Seite 1/2 sehen jetzt genau wie die anderen 3
