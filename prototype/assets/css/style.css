@@ -53,7 +53,7 @@ body {
   overflow-x: hidden; /* Sicherheitsnetz gegen versehentliches horizontales Scrollen */
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
 a { color: inherit; }
 
@@ -112,7 +112,8 @@ header.site-header {
 }
 .brand {
   font-family: var(--font-headline);
-  font-size: var(--fs-brand);
+  /* Gleiche Größe wie die Hero-Überschrift "Naturheilpraxis Beitat" auf der Startseite. */
+  font-size: var(--fs-hero-h1);
   color: var(--gruen-dunkel);
   text-decoration: none;
   font-weight: 600;
@@ -165,7 +166,7 @@ nav.main-nav a {
   text-decoration: none;
   color: var(--gruen-dunkel);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   letter-spacing: 0.02em;
   padding: 10px 8px;
   border-bottom: 2px solid transparent;
@@ -197,12 +198,17 @@ nav.sub-nav a {
 }
 
 @media (min-width: 1000px) {
-  .header-inner { justify-content: center; gap: clamp(32px, 5vw, 64px); }
+  /* Logo + Reiterzeile als Einheit linksbündig, in der Höhe mittig (nicht über
+     die ganze Breite verteilt und nicht zentriert). */
+  /* Der große Logo-Schriftzug (Größe der Hero-Überschrift) passt bei normalen
+     Desktop-Breiten nicht mehr neben die volle Reiterzeile in eine Zeile –
+     daher zweizeilig: Logo oben, Reiterzeile darunter, beides linksbündig. */
+  .header-inner { justify-content: flex-start; gap: 10px; }
   .nav-toggle { display: none; }
   .nav-wrapper {
     display: flex !important;
-    flex-basis: auto;
-    width: auto;
+    flex-basis: 100%;
+    width: 100%;
     background: none;
     border-radius: 0;
     padding: 0;
@@ -572,6 +578,7 @@ footer.site-footer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 28px;
+  color: var(--gruen-dunkel);
 }
 .footer-grid h4 {
   font-family: var(--font-headline);
@@ -589,6 +596,13 @@ footer.site-footer {
   text-decoration: none;
 }
 .footer-grid a:hover { text-decoration: underline; }
+.footer-instagram {
+  margin: 28px 0 0;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+.footer-instagram a { color: var(--gruen-dunkel); text-decoration: none; }
+.footer-instagram a:hover { text-decoration: underline; }
 .footer-bottom {
   margin-top: 32px;
   padding-top: 20px;
@@ -790,8 +804,8 @@ footer.site-footer {
 .event-card-thumb {
   display: block;
   justify-self: center;
-  width: 140px;
-  height: 140px;
+  width: 220px;
+  height: 220px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(10, 90, 22, 0.2);
@@ -801,34 +815,24 @@ footer.site-footer {
   height: 100%;
   object-fit: cover;
 }
-.event-card .date-badge {
-  background: var(--gruen-dunkel);
-  color: #fff;
-  border-radius: var(--radius);
-  padding: 14px;
-  text-align: center;
-  font-family: var(--font-headline);
-  justify-self: center;
-  width: 100px;
-}
-.event-card .date-badge .day { font-size: 1.8rem; font-weight: 700; display: block; }
-.event-card .date-badge .month { font-size: 0.85rem; text-transform: uppercase; }
 .event-card h3 { margin: 0 0 6px; font-family: var(--font-headline); color: var(--gruen-dunkel); font-size: 1.3rem; }
 .event-card p { margin: 0; font-size: 0.9rem; }
 @media (min-width: 640px) {
   .event-card {
-    grid-template-columns: 100px 100px 1fr auto;
+    grid-template-columns: 180px 1fr auto;
     text-align: left;
   }
-  .event-card .date-badge { justify-self: start; width: auto; }
-  .event-card-thumb { justify-self: start; width: 100px; height: 100px; }
+  .event-card-thumb { justify-self: start; width: 180px; height: 180px; }
 }
 
-/* Anklickbare Flyer-/Dokument-Bilder: öffnen in Originalgröße im neuen Tab
-   (event-hero-flyer, das freistehende Flyer-S2-Bild, doc-page). */
-.event-hero-flyer a,
+/* position:relative auf JEDEM Lightbox-Link, nicht nur den bekannten Wrapper-
+   Klassen – sonst positioniert sich ein enthaltenes .img-zoom-hint (position:
+   absolute) am nächsten irgendwo weiter oben liegenden Vorfahren statt am
+   Bild selbst. */
+a.lightbox-link { position: relative; }
+
+/* Anklickbare Dokument-Bilder: öffnen in Originalgröße im neuen Tab (doc-page). */
 .doc-image-block > a {
-  position: relative;
   display: inline-block;
   text-decoration: none;
   cursor: zoom-in;
@@ -851,10 +855,6 @@ footer.site-footer {
   color: var(--bordeaux);
   white-space: nowrap;
 }
-.event-hero-flyer img {
-  border-radius: var(--radius);
-  box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
-}
 .doc-image-block {
   display: flex;
   flex-direction: column;
@@ -869,6 +869,53 @@ footer.site-footer {
   border-radius: var(--radius);
   box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
 }
+/* Bild mit Vorder-/Rückseite (z.B. Flyer): mehrere Seiten in einer Slide-Leiste,
+   die per Pfeil-Buttons mit einem Wisch-Übergang (transform) durchgeblättert
+   werden – kein eigener "Zweite Seite"-Button/Lightbox-Sprung nötig. Klick auf
+   das sichtbare Bild öffnet weiterhin die Lightbox (Vollbild-Zoom). */
+.doc-page-wrap {
+  position: relative;
+  max-width: 480px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(10, 90, 22, 0.18);
+}
+.doc-page-track {
+  display: flex;
+  transition: transform 0.45s ease;
+}
+.doc-page-track > a {
+  flex: none;
+  width: 100%;
+  display: block;
+  cursor: zoom-in;
+}
+.doc-page-track img {
+  width: 100%;
+  display: block;
+}
+.doc-page-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--gruen-dunkel);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+.doc-page-nav:hover { background: #fff; }
+.doc-page-nav-prev { left: 10px; }
+.doc-page-nav-next { right: 10px; }
 .doc-image-block .qr-block {
   display: flex;
   align-items: center;

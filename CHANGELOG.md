@@ -1,5 +1,80 @@
 # Changelog
 
+## 2026-09-16 (Naturheilkundetag: Wisch-Übergang statt Karte/Lightbox) – Flyer-Vorder-/Rückseite
+
+### Geändert
+- Nochmal überarbeitet nach Feedback: Flyer Seite 1/2 sehen jetzt genau wie die anderen 3
+  Dokumentbilder aus (groß, kein Karten-/Thumb-Rahmen), aber mit zwei Pfeil-Buttons direkt auf dem
+  Bild. Erster Versuch (Pfeile öffnen die Lightbox bei der jeweils anderen Seite) durch Wunsch
+  ersetzt: Die Pfeile blättern jetzt per Wisch-Übergang direkt im Bild um (CSS-`transform`-
+  Animation auf einer Slide-Leiste `.doc-page-track`), ohne die Lightbox zu öffnen. Klick auf das
+  Bild selbst öffnet weiterhin unverändert die Lightbox zum Vollbild-Zoom.
+- Ausstellerverzeichnis/Raum 1/Raum 2 unverändert (großformatig, gemeinsame Lightbox-Gruppe mit
+  Pfeilen aus dem letzten Durchgang).
+
+## 2026-09-16 (Naturheilkundetag: Flyer-Karte kompakter, Pfeil-Navigation) – Layout-Feedback umgesetzt
+
+### Geändert
+- Flyer Seite 1 & 2 (Titelbild + Rückseite) auf `events-naturheilkundetag.html` nehmen nicht mehr
+  zwei volle Bildbreiten hintereinander ein, sondern sind jetzt zu einer kompakten Karte
+  zusammengefasst (gleiches Muster wie die Flyer-Karten auf Praxis & Schwerpunkte): Vorderseite als
+  Vorschaubild, „⇄ Zweite Seite"-Button darunter öffnet die Rückseite in der Lightbox.
+- Ausstellerverzeichnis, Vortragsprogramm Raum 1 und Raum 2 bleiben bewusst wie bisher groß
+  dargestellt (auf Wunsch), haben jetzt aber eine gemeinsame Lightbox-Gruppe: In der vergrößerten
+  Ansicht kann man mit den Pfeilen links/rechts direkt zwischen allen drei Dokumenten
+  weiterblättern, ohne die Lightbox zu schließen.
+
+## 2026-09-16 (Bugfix Zoom-Hinweis Flyer S2) – Fehlpositioniertes Badge auf Naturheilkundetag-Seite behoben
+
+### Behoben
+- Bug gefunden (per Screenshot gemeldet): Auf `events-naturheilkundetag.html` "schwebte" der
+  Zoom-Hinweis „🔍 Zum Vergrößern anklicken" beim Flyer S2 (Rückseite, eigener Abschnitt) frei auf
+  der Seite statt auf dem Bild zu sitzen. Ursache: Dieser eine Link nutzte weder die Wrapper-Klasse
+  `.event-hero-flyer` noch `.doc-image-block`, für die `position: relative` gesetzt war – das
+  `position: absolute`-Badge positionierte sich dadurch relativ zu einem entfernten Vorfahren.
+  Fix generalisiert: `position: relative` gilt jetzt für jeden `a.lightbox-link`, unabhängig von
+  der Wrapper-Klasse.
+- Nebenbei behoben: Allen 8 Bildern auf dieser Seite `width`/`height`-Attribute ergänzt (verhindert
+  Layout-Sprünge beim Nachladen der Bilder). Dabei einen zweiten, dadurch aufgedeckten Fehler in
+  der globalen Bildregel behoben: `img` hatte kein `height: auto`, wodurch Bilder mit `width`/
+  `height`-Attributen auf ihre volle Pixelhöhe statt proportional skaliert gerendert wurden.
+
+## 2026-09-16 (Design-Check Revision 1) – Rot markierte Korrekturen aus Ellens 2. Durchgang umgesetzt
+
+### Geändert
+- Grundlage: `docs/...rev 1.docx` (Home/Kopfzeile/Fußzeile und Praxisschwerpunkte) – nur die rot
+  markierten Anmerkungen berücksichtigt, alles andere war laut Ellen bereits bestätigt.
+- **Logo/Kopfzeile:** Schriftgröße des Marken-Schriftzugs „Naturheilpraxis Beitat" in der
+  Kopfzeile jetzt identisch zur Hero-Überschrift auf der Startseite (`--fs-hero-h1` statt der
+  kleineren `--fs-brand`).
+- **Kopfzeile-Position (Desktop):** Logo + Reiterzeile sind jetzt linksbündig statt zentriert
+  angeordnet. Da der jetzt sehr große Logo-Schriftzug nicht mehr neben die volle Reiterzeile in
+  eine Zeile passt, steht die Reiterzeile bewusst als eigene Zeile darunter (statt fragil bei
+  bestimmten Breiten umzubrechen) – beides bleibt linksbündig und bildet weiterhin einen
+  zusammenhängenden Kopfbereich.
+- **Fußzeile:** Instagram-Hinweis „📷 #NaturheilpraxisBeitat Alzenau" unten in der Fußzeile
+  ergänzt (verlinkt auf die Instagram-Hashtag-Seite – falls stattdessen ein bestimmter
+  Account-Handle verlinkt werden soll, bitte den genauen @-Namen nennen). Tel.-Nr. und Adresse in
+  der Fußzeile sind jetzt in der gleichen grünen Farbe wie die übrigen Fußzeilen-Texte (vorher
+  Standard-Dunkeltext).
+- **Schwerpunkte-Block 2** an allen 3 Stellen (Home-Kacheln, Praxis & Schwerpunkte,
+  Beschwerdebilder) umbenannt: „Darm, Immunsystem, Haut" → „Darm, Haut & Immunsystem"; auf Home
+  und Praxis & Schwerpunkte zusätzlich mit Zeilenumbruch, sodass „Immunsystem" wie gewünscht auf
+  der zweiten Zeile steht.
+- **Praxis & Schwerpunkte – Unterzeile:** Im Blocksatz ausgerichtet und mit den vorgegebenen neuen
+  Zeilenumbrüchen versehen.
+- Flyer-Rückseite „Heilsame Begegnung von Mensch & Pflanze" (Schmerztherapie-Block): bereits im
+  letzten Durchgang korrekt umgesetzt (nur ein Panel, korrekter Alt-Text) – keine weitere Änderung
+  nötig.
+
+## 2026-09-16 (Event-Karte vereinfacht) – Datums-Badge entfernt, Teaserbild vergrößert
+
+### Geändert
+- Auf `events.html`: Das separate Datums-Badge ("27 / SEP. '26") in der Event-Karte entfernt –
+  das Datum steht bereits gut lesbar im Teaserbild selbst und im Fließtext, war also doppelt.
+  Dafür das Teaserbild vergrößert (140px → 220px mobil, 100px → 180px ab 640px) und nimmt jetzt
+  mehr Raum in der Karte ein. `.date-badge`-CSS-Regeln entfernt (nirgends sonst verwendet).
+
 ## 2026-09-16 (Naturheilkundetag-Dokumente aktualisiert) – Ausstellerverzeichnis & Vortragsprogramm Raum 1/2
 
 ### Geändert / Hinzugefügt

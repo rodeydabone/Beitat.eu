@@ -67,6 +67,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  // Mehrseitige Bilder (z.B. Flyer Vorder-/Rückseite): Pfeil-Buttons blättern
+  // per Wisch-Übergang (CSS transform) direkt im Bild um, statt die Lightbox
+  // zu öffnen. Klick auf das sichtbare Bild selbst öffnet weiterhin die
+  // Lightbox (Vollbild-Zoom) über den normalen a.lightbox-link-Handler oben.
+  document.querySelectorAll('.doc-page-track').forEach(function (track) {
+    var slides = track.children.length;
+    track.style.width = (slides * 100) + '%';
+    Array.prototype.forEach.call(track.children, function (slide) {
+      slide.style.width = (100 / slides) + '%';
+    });
+    track.dataset.index = '0';
+  });
+
+  function slideDocPage(track, delta) {
+    var slides = track.children.length;
+    var index = (parseInt(track.dataset.index, 10) + delta + slides) % slides;
+    track.dataset.index = String(index);
+    track.style.transform = 'translateX(-' + (index * 100 / slides) + '%)';
+  }
+
+  document.querySelectorAll('.doc-page-nav').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var track = btn.closest('.doc-page-wrap').querySelector('.doc-page-track');
+      slideDocPage(track, btn.classList.contains('doc-page-nav-next') ? 1 : -1);
+    });
+  });
+
   prevBtn.addEventListener('click', function (e) { e.stopPropagation(); showIndex(currentIndex - 1); });
   nextBtn.addEventListener('click', function (e) { e.stopPropagation(); showIndex(currentIndex + 1); });
 
