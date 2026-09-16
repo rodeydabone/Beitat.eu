@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-09-16 (allerletzt) – Reiter „Wissen & Blog" geparkt (auskommentiert)
+
+### Geändert
+- Der Hauptnav-Punkt „Wissen & Blog" ist auf allen 17 Prototyp-Seiten auskommentiert
+  (`<!-- ... -->`), nicht gelöscht – Grund: noch kein echter Blog-/Wissensbeitrag verfügbar.
+  Wiederaktivierung später = Kommentar in der jeweiligen `<li>`-Zeile entfernen.
+- Die Seiten `wissen.html` und `wissen-beispiel-eintrag.html` selbst bleiben unverändert
+  im Repo bestehen und sind weiterhin per Direktlink erreichbar, tauchen aber in keiner
+  Navigation mehr auf (gleiches Vorgehen wie zuvor bei „Seminarzentrum").
+- `docs/seitenbaum.md` entsprechend aktualisiert (Baum, Diagramm, Status-Tabelle, offene
+  Punkte).
+
 ## 2026-09-16 (zuletzt) – Eigenbluttherapie aus Therapieangebot entfernt
 
 ### Entfernt
