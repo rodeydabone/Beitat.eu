@@ -787,6 +787,20 @@ footer.site-footer {
   align-items: center;
   text-align: center;
 }
+.event-card-thumb {
+  display: block;
+  justify-self: center;
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(10, 90, 22, 0.2);
+}
+.event-card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .event-card .date-badge {
   background: var(--gruen-dunkel);
   color: #fff;
@@ -803,19 +817,39 @@ footer.site-footer {
 .event-card p { margin: 0; font-size: 0.9rem; }
 @media (min-width: 640px) {
   .event-card {
-    grid-template-columns: 100px 1fr auto;
+    grid-template-columns: 100px 100px 1fr auto;
     text-align: left;
   }
   .event-card .date-badge { justify-self: start; width: auto; }
+  .event-card-thumb { justify-self: start; width: 100px; height: 100px; }
 }
 
 /* Anklickbare Flyer-/Dokument-Bilder: öffnen in Originalgröße im neuen Tab
    (event-hero-flyer, das freistehende Flyer-S2-Bild, doc-page). */
 .event-hero-flyer a,
 .doc-image-block > a {
+  position: relative;
   display: inline-block;
   text-decoration: none;
   cursor: zoom-in;
+}
+/* Lesbare Text-Variante des Zoom-Hinweises (statt der kleinen Icon-Kreis-Badge
+   .img-zoom-hint, die für einzelne Emojis auf Katalog-Kacheln gedacht ist) –
+   für große, freistehende Flyer-/Dokumentbilder mit sichtbarem Hinweistext. */
+.img-zoom-hint--label {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: auto;
+  height: auto;
+  border-radius: 999px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--bordeaux);
+  white-space: nowrap;
 }
 .event-hero-flyer img {
   border-radius: var(--radius);

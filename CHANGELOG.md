@@ -1,5 +1,47 @@
 # Changelog
 
+## 2026-09-16 (Naturheilkundetag-Dokumente aktualisiert) – Ausstellerverzeichnis & Vortragsprogramm Raum 1/2
+
+### Geändert / Hinzugefügt
+- Ellen hat 3 optimierte PDFs geliefert (`docs/AlzenauerNaturHeilkundeTag - Ausstellerverzeichnis...pdf`,
+  `docs/Alzenauer_Naturheilkundetag_2026_Raum_1_Hahnekamm.pdf`,
+  `docs/Alzenauer_Naturheilkundetag_2026_Raum_2 Wilmundsheim.pdf`) als Ersatz für die bisherigen
+  Bilder. Mit `pdftoppm` (Poppler) als hochauflösende JPGs (200dpi) gerendert und die bestehenden
+  Dateien `assets/img/naturheilkundetag-ausstellerverzeichnis.jpg` und
+  `assets/img/naturheilkundetag-vortragsprogramm-raum1.jpg` ersetzt (gleicher Dateiname, daher
+  automatisch überall aktualisiert).
+- Neu: `assets/img/naturheilkundetag-vortragsprogramm-raum2.jpg` – der bisherige Platzhalter
+  „Vortragsprogramm Raum 2 folgt in Kürze" auf `events-naturheilkundetag.html` ist jetzt durch das
+  echte Programm ersetzt (14 Vorträge, Raum 2 – Wilmundsheim), im gleichen Layout wie Raum 1
+  (Bild + Instagram-QR-Block).
+- `docs/seitenbaum.md`-Statuszeile für die Naturheilkundetag-Seite aktualisiert (kein Platzhalter
+  mehr).
+
+## 2026-09-16 (Bugfix Zoom-Hinweis) – "Zum Vergrößern anklicken"-Badge auf Naturheilkundetag-Seite repariert
+
+### Behoben
+- Bug gefunden (per Screenshot gemeldet) auf `events-naturheilkundetag.html`: Der Hinweistext
+  „🔍 Zum Vergrößern anklicken" auf den 4 großen Flyer-/Dokumentbildern hing lose am rechten
+  Fensterrand statt auf dem Bild zu sitzen, weil der umgebende Link (`.event-hero-flyer a`,
+  `.doc-image-block > a`) kein `position: relative` hatte – das `position: absolute`-Badge
+  positionierte sich dadurch relativ zum nächsten Vorfahren mit Position statt zum Bild.
+  `position: relative` ergänzt.
+- Zusätzlich wurde die kleine 32px-Icon-Kreis-Badge `.img-zoom-hint` (eigentlich nur für ein
+  einzelnes Emoji auf den Katalog-Kacheln gedacht, z. B. Praxis & Schwerpunkte) hier mit vollem
+  Lesetext wiederverwendet und lief dadurch krumm über. Neue Variante `.img-zoom-hint--label`
+  (Pillenform, automatische Breite) für die 4 Textbadges auf dieser Seite ergänzt.
+
+## 2026-09-16 (Events-Teaserbild) – Ellens Event-Grafik auf der Events-Übersicht ergänzt
+
+### Hinzugefügt
+- `docs/event_bild.jpeg` (Ellens Instagram-Style-Grafik mit Datum/Ablauf) als
+  `prototype/assets/img/naturheilkundetag-teaser.jpg` in die Event-Übersichtsseite
+  (`events.html`) übernommen – als quadratisches Vorschaubild links in der Event-Karte,
+  verlinkt (dekorativ, `aria-hidden`) auf die Detailseite, gleicher Bildstil (Rundung/Schatten)
+  wie die übrigen Karten im Design.
+- `.event-card` per CSS um eine Bild-Spalte erweitert (`.event-card-thumb`), Grid-Layout auf
+  Desktop entsprechend angepasst.
+
 ## 2026-09-16 (Design-Check Praxis & Schwerpunkte) – Unterseite nach Ellens 2. Design-Check-Dokument angepasst
 
 ### Geändert
