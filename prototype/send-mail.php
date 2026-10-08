@@ -8,7 +8,11 @@
 declare(strict_types=1);
 
 $empfaenger = 'naturheilpraxis-beitat@web.de';
-$absenderDomain = 'beitat.eu';
+// Absender muss zur gehosteten Domain (beitat.eu) gehoeren, sonst wird die
+// Mail vom lokalen Mailserver stillschweigend abgelehnt (mail() liefert
+// false, ohne Fehlermeldung) - deshalb die echte Adresse formular@beitat.eu
+// (Weiterleitung auf ellen-beitat@web.de) statt einer @web.de-Adresse.
+$absender = 'formular@beitat.eu';
 $rueckkehrseite = 'kontakt.html';
 
 function redirect_mit_status(string $status): never
@@ -61,7 +65,7 @@ if ($telefon !== '') {
 $body .= "\nNachricht:\n" . $nachricht . "\n";
 
 $headers = [
-    'From: Kontaktformular <formular@' . $absenderDomain . '>',
+    'From: Kontaktformular auf beitat.eu <' . $absender . '>',
     'Reply-To: ' . $name . ' <' . $email . '>',
     'Content-Type: text/plain; charset=UTF-8',
 ];
